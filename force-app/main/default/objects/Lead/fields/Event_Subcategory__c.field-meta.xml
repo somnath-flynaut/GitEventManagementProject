@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Event_Subcategory__c</fullName>
+    <label>Event Subcategory</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Corporate Event</fullName>
+                <default>false</default>
+                <label>Corporate Event</label>
+            </value>
+            <value>
+                <fullName>Educational Event</fullName>
+                <default>false</default>
+                <label>Educational Event</label>
+            </value>
+            <value>
+                <fullName>Entertainment Event</fullName>
+                <default>false</default>
+                <label>Entertainment Event</label>
+            </value>
+            <value>
+                <fullName>Social Event</fullName>
+                <default>false</default>
+                <label>Social Event</label>
+            </value>
+            <value>
+                <fullName>Cultural Event</fullName>
+                <default>false</default>
+                <label>Cultural Event</label>
+            </value>
+            <value>
+                <fullName>Charity Event</fullName>
+                <default>false</default>
+                <label>Charity Event</label>
+            </value>
+            <value>
+                <fullName>Private Event</fullName>
+                <default>false</default>
+                <label>Private Event</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>
