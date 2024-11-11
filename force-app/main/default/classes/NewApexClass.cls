@@ -30,7 +30,7 @@ public static void secondMethodByMahesh(){
     System.debug('Added by mahesh');
 
 public static void methodAddedByVinod(){
-    System.debug('Added by Vinod');
+    System.debug('Added by Vinod Borikar');
 }    
 
     
