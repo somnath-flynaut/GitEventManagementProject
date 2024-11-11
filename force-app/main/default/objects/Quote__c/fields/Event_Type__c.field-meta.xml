@@ -11,19 +11,14 @@
         <valueSetDefinition>
             <sorted>false</sorted>
             <value>
-                <fullName>Conference</fullName>
+                <fullName>Virtual</fullName>
                 <default>false</default>
-                <label>Conference</label>
+                <label>Virtual</label>
             </value>
             <value>
-                <fullName>Workshop</fullName>
+                <fullName>Non-Virtual</fullName>
                 <default>false</default>
-                <label>Workshop</label>
-            </value>
-            <value>
-                <fullName>Seminar</fullName>
-                <default>false</default>
-                <label>Seminar</label>
+                <label>Non-Virtual</label>
             </value>
         </valueSetDefinition>
     </valueSet>
