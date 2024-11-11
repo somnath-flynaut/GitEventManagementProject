@@ -3,7 +3,7 @@ public with sharing class NewApexClass {
         
 
     }
- vinod
+
 
     public String sayHello(){
         System.debug('Hello World');
@@ -14,6 +14,7 @@ public with sharing class NewApexClass {
         system.debug('Name is :' +s) ;//debugging 
    
         
- main
+
     }
+}
 }
