@@ -28,14 +28,20 @@ public with sharing class NewApexClass {
 //added by 2nd method
 public static void secondMethodByMahesh(){
     System.debug('Added by mahesh');
-
+}
 public static void methodAddedByVinod(){
     System.debug('Added by Vinod');
-}    
+} 
+
+// added by mahesh Branch 
+//added by 3rd method
+public static void thirdMethodByMahesh(){
+    System.debug('Added by mahesh');
+}
 
     
 }
-}
+
 
 
 
