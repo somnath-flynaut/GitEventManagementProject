@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Event_Types_Managed__c</fullName>
+    <label>Event Types Managed</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Online</fullName>
+                <default>false</default>
+                <label>Online</label>
+            </value>
+            <value>
+                <fullName>In-person</fullName>
+                <default>false</default>
+                <label>In-person</label>
+            </value>
+            <value>
+                <fullName>Hybrid</fullName>
+                <default>false</default>
+                <label>Hybrid</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

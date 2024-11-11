@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Company</fullName>
+    <description>This field describe the name of the company or organization the lead represents(Here trigger is used for automatic reflect the name of lead into company)</description>
+    <trackFeedHistory>false</trackFeedHistory>
+</CustomField>
