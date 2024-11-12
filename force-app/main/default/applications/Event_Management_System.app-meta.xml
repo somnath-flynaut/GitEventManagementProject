@@ -12,6 +12,8 @@
     <isOmniPinnedViewEnabled>false</isOmniPinnedViewEnabled>
     <label>Event Management System</label>
     <navType>Standard</navType>
+    <tabs>Event_Team_Member__c</tabs>
+    <tabs>Events_Managers__c</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>Event_Management_System_UtilityBar</utilityBar>
 </CustomApplication>
