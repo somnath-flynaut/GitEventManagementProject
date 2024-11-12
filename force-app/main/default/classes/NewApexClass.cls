@@ -29,12 +29,13 @@ public with sharing class NewApexClass {
 public static void secondMethodByMahesh(){
     System.debug('Added by mahesh');
 }
+
 public static void methodAddedByVinod(){
 
     System.debug('Added by Vinod');
 }
-    System.debug('Added by Vinod Borikar');
-}    
+    //System.debug('Added by Vinod Borikar');
+   
 
 
 // added by mahesh Branch 
@@ -43,8 +44,8 @@ public static void thirdMethodByMahesh(){
     System.debug('Added by mahesh');
 }
 
-    
-}
+}    
+
 
 
 
