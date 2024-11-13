@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 {
     "packageDirectories": [
       {
@@ -10,19 +9,4 @@
     "namespace": "",
     "sfdcLoginUrl": "https://login.salesforce.com",
     "sourceApiVersion": "62.0"
-  }
-=======
-{
-    "packageDirectories": [
-      {
-        "path": "force-app",
-        "default": true
-      }
-    ],
-    "name": "projectForPractice",
-    "namespace": "",
-    "sfdcLoginUrl": "https://login.salesforce.com",
-    "sourceApiVersion": "62.0"
-  }
-  
->>>>>>> 2ac36391adf1c99313a1b6fdf629ba6bf28d1579
+}
