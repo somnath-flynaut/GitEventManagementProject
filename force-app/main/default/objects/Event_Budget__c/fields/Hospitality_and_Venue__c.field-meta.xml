@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Hospitality_and_Venue__c</fullName>
+    <label>Hospitality and Venue</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Hotel Conference Room</fullName>
+                <default>false</default>
+                <label>Hotel Conference Room</label>
+            </value>
+            <value>
+                <fullName>Banquet Hall</fullName>
+                <default>false</default>
+                <label>Banquet Hall</label>
+            </value>
+            <value>
+                <fullName>Outdoor Venue</fullName>
+                <default>false</default>
+                <label>Outdoor Venue</label>
+            </value>
+            <value>
+                <fullName>Co-Working Space</fullName>
+                <default>false</default>
+                <label>Co-Working Space</label>
+            </value>
+            <value>
+                <fullName>Restaurant</fullName>
+                <default>false</default>
+                <label>Restaurant</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>
