@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomTab xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customObject>true</customObject>
+    <description>Stores invoice records and tracks payments for services or sponsorships, ensuring all parties involved in the event are paid properly and on time</description>
+    <motif>Custom13: Box</motif>
+</CustomTab>
