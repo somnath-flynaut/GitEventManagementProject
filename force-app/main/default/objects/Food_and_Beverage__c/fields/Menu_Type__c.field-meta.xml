@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Menu_Type__c</fullName>
+    <label>Menu Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Vegetarian Menu</fullName>
+                <default>false</default>
+                <label>Vegetarian Menu</label>
+            </value>
+            <value>
+                <fullName>Non-Vegetarian Menu</fullName>
+                <default>false</default>
+                <label>Non-Vegetarian Menu</label>
+            </value>
+            <value>
+                <fullName>Specialty Menu</fullName>
+                <default>false</default>
+                <label>Specialty Menu</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>
