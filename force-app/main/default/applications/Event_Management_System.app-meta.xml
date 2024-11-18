@@ -14,6 +14,19 @@
     <navType>Standard</navType>
     <tabs>Event_Team_Member__c</tabs>
     <tabs>Events_Managers__c</tabs>
+    <tabs>standard-Campaign</tabs>
+    <tabs>standard-Lead</tabs>
+    <tabs>standard-Account</tabs>
+    <tabs>Event_Details__c</tabs>
+    <tabs>Event_Budget__c</tabs>
+    <tabs>Venues__c</tabs>
+    <tabs>Quote__c</tabs>
+    <tabs>Hospitality__c</tabs>
+    <tabs>Vendor__c</tabs>
+    <tabs>Food_and_Beverage__c</tabs>
+    <tabs>Logistics__c</tabs>
+    <tabs>Inventory__c</tabs>
+    <tabs>Registration__c</tabs>
     <uiType>Lightning</uiType>
-    <utilityBar>Event_Management_System_UtilityBar</utilityBar>
+    <!-- <utilityBar>Event_Management_System_UtilityBar</utilityBar>  -->
 </CustomApplication>

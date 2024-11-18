@@ -153,13 +153,14 @@
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>Private</externalSharingModel>
-    <label>Event</label>
+    <label>Registration</label>
     <nameField>
-        <label>EventM Name</label>
+        <displayFormat>RID-{0000}</displayFormat>
+        <label>Registration Id</label>
         <trackHistory>false</trackHistory>
-        <type>Text</type>
+        <type>AutoNumber</type>
     </nameField>
-    <pluralLabel>Events</pluralLabel>
+    <pluralLabel>Registrations</pluralLabel>
     <searchLayouts></searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
     <visibility>Public</visibility>
