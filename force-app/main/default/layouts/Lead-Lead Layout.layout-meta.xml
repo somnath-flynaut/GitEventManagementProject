@@ -198,9 +198,9 @@
         <quickActionListItems>
             <quickActionName>NewEvent</quickActionName>
         </quickActionListItems>
-        <quickActionListItems>
+        <!-- <quickActionListItems> Commented by Mahesh for deploying 
             <quickActionName>FeedItem.RypplePost</quickActionName>
-        </quickActionListItems>
+        </quickActionListItems> -->
         <quickActionListItems>
             <quickActionName>FeedItem.LinkPost</quickActionName>
         </quickActionListItems>
