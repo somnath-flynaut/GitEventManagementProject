@@ -27,6 +27,12 @@
     <tabs>Logistics__c</tabs>
     <tabs>Inventory__c</tabs>
     <tabs>Registration__c</tabs>
+    <tabs>Speaker__c</tabs>
+    <tabs>Session__c</tabs>
+    <tabs>Feedback__c</tabs>
+    <tabs>InvoiceDetails__c</tabs>
+    <tabs>standard-Task</tabs>
+    <tabs>standard-Case</tabs>
+    <tabs>standard-Opportunity</tabs>
     <uiType>Lightning</uiType>
-    <!-- <utilityBar>Event_Management_System_UtilityBar</utilityBar>  -->
 </CustomApplication>
