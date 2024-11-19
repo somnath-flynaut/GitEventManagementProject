@@ -155,9 +155,10 @@
     <externalSharingModel>Private</externalSharingModel>
     <label>Food and Beverage</label>
     <nameField>
-        <label>Food and Beverage Name</label>
+        <displayFormat>FBID-{00000}</displayFormat>
+        <label>Food and Beverage Id</label>
         <trackHistory>false</trackHistory>
-        <type>Text</type>
+        <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Foods and Beverages</pluralLabel>
     <searchLayouts></searchLayouts>
