@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Custom_Compact_Layout</fullName>
+    <fields>Name</fields>
+    <fields>Invoice_ID__c</fields>
+    <fields>Total_Expenses__c</fields>
+    <fields>Food_Expense__c</fields>
+    <fields>Hospitality_Venue_Expense__c</fields>
+    <fields>Logistic_Expense__c</fields>
+    <fields>Staff_Expense__c</fields>
+    <fields>Miscellaneous_Expense__c</fields>
+    <fields>Amount_Paid__c</fields>
+    <label>Custom Compact Layout</label>
+</CompactLayout>
