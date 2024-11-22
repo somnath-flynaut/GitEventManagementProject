@@ -153,14 +153,13 @@
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>Private</externalSharingModel>
-    <label>Food and Beverage</label>
+    <label>Session</label>
     <nameField>
-        <displayFormat>FBID-{00000}</displayFormat>
-        <label>Food and Beverage Id</label>
+        <label>Session Name</label>
         <trackHistory>false</trackHistory>
-        <type>AutoNumber</type>
+        <type>Text</type>
     </nameField>
-    <pluralLabel>Foods and Beverages</pluralLabel>
+    <pluralLabel>sessions</pluralLabel>
     <searchLayouts></searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
     <visibility>Public</visibility>

@@ -132,13 +132,13 @@
         <style>CustomLinks</style>
     </layoutSections>
     <quickActionList>
-        <quickActionListItems>
+        <!-- <quickActionListItems>
             <quickActionName>Task.EditDescription_3</quickActionName>
-        </quickActionListItems>
-        <quickActionListItems>
+        </quickActionListItems> -->
+        <!-- <quickActionListItems>
             <quickActionName>Task.Defer_3</quickActionName>
-        </quickActionListItems>
-        <quickActionListItems>
+        </quickActionListItems> -->
+        <!-- <quickActionListItems>
             <quickActionName>Task.UpdateStatus_3</quickActionName>
         </quickActionListItems>
         <quickActionListItems>
@@ -212,7 +212,7 @@
         </quickActionListItems>
         <quickActionListItems>
             <quickActionName>Task.UpdateStatus_0</quickActionName>
-        </quickActionListItems>
+        </quickActionListItems> -->
     </quickActionList>
     <relatedContent>
         <relatedContentItems>
