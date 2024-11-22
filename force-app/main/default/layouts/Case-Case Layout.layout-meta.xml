@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
     <emailDefault>false</emailDefault>
+    <excludeButtons>Submit</excludeButtons>
     <feedLayout>
         <autocollapsePublisher>true</autocollapsePublisher>
         <compactFeed>true</compactFeed>
@@ -47,8 +48,6 @@
         </rightComponents>
         <useInlineFiltersInConsole>false</useInlineFiltersInConsole>
     </feedLayout>
-    <headers>PersonalTagging</headers>
-    <headers>PublicTagging</headers>
     <layoutSections>
         <customLabel>false</customLabel>
         <detailHeading>false</detailHeading>
@@ -64,20 +63,34 @@
                 <field>CaseNumber</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>ContactId</field>
+                <behavior>Required</behavior>
+                <field>Status</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>AccountId</field>
+                <behavior>Edit</behavior>
+                <field>Priority</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Type</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Required</behavior>
+                <field>Origin</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Reason</field>
+            </layoutItems>
+        </layoutColumns>
+        <layoutColumns>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>AccountId</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>ContactId</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -87,27 +100,13 @@
                 <behavior>Edit</behavior>
                 <field>Phone__c</field>
             </layoutItems>
-        </layoutColumns>
-        <layoutColumns>
-            <layoutItems>
-                <behavior>Required</behavior>
-                <field>Status</field>
-            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Priority</field>
+                <field>Resolution__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>ContactPhone</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>ContactEmail</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Required</behavior>
-                <field>Origin</field>
+                <field>ClosedDate</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
@@ -122,29 +121,8 @@
                 <behavior>Readonly</behavior>
                 <field>SuppliedEmail</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>SuppliedName</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>CreatedDate</field>
-            </layoutItems>
         </layoutColumns>
-        <layoutColumns>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>SuppliedCompany</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>SuppliedPhone</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>ClosedDate</field>
-            </layoutItems>
-        </layoutColumns>
+        <layoutColumns/>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>
     <layoutSections>
@@ -189,21 +167,14 @@
                 <behavior>Edit</behavior>
                 <field>Description</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Comments</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Resolution__c</field>
-            </layoutItems>
         </layoutColumns>
         <style>OneColumn</style>
     </layoutSections>
     <layoutSections>
-        <customLabel>false</customLabel>
+        <customLabel>true</customLabel>
         <detailHeading>false</detailHeading>
         <editHeading>false</editHeading>
+        <label>Custom Links</label>
         <layoutColumns/>
         <layoutColumns/>
         <layoutColumns/>
@@ -284,11 +255,11 @@
     <showEmailCheckbox>true</showEmailCheckbox>
     <showHighlightsPanel>true</showHighlightsPanel>
     <showInteractionLogPanel>false</showInteractionLogPanel>
-    <showKnowledgeComponent>true</showKnowledgeComponent>
+    <showKnowledgeComponent>false</showKnowledgeComponent>
     <showRunAssignmentRulesCheckbox>true</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>true</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h1a0000012AGt</masterLabel>
+        <masterLabel>00hC4000001HrKK</masterLabel>
         <sizeX>3</sizeX>
         <sizeY>4</sizeY>
         <summaryLayoutItems>
@@ -300,11 +271,6 @@
             <field>AccountId</field>
             <posX>0</posX>
             <posY>1</posY>
-        </summaryLayoutItems>
-        <summaryLayoutItems>
-            <field>ContactPhone</field>
-            <posX>0</posX>
-            <posY>2</posY>
         </summaryLayoutItems>
         <summaryLayoutItems>
             <field>CaseNumber</field>
@@ -335,11 +301,6 @@
             <field>Priority</field>
             <posX>2</posX>
             <posY>1</posY>
-        </summaryLayoutItems>
-        <summaryLayoutItems>
-            <field>OwnerId</field>
-            <posX>2</posX>
-            <posY>2</posY>
         </summaryLayoutItems>
         <summaryLayoutStyle>CaseInteraction</summaryLayoutStyle>
     </summaryLayout>
