@@ -10,10 +10,10 @@
     </caseValues>
     <layouts>
         <layout>Account Layout</layout>
-        <sections>
-            <label><!-- Custom Links --></label>
+        <!-- <sections> For  deployement purpose by Nikhil
+            <label></label>
             <section>Custom Links</section>
-        </sections>
+        </sections> -->
     </layouts>
     <startsWith>Vowel</startsWith>
 </CustomObjectTranslation>
