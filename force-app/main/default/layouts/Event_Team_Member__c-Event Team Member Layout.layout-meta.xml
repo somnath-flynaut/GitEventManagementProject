@@ -55,8 +55,8 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>OwnerId</field>
-            </layoutItems>-->
-        </layoutColumns>
+            </layoutItems>
+        </layoutColumns>-->
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>
     <layoutSections>
