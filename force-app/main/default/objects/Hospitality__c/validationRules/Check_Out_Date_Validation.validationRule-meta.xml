@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Check_Out_Date_Validation</fullName>
+    <active>true</active>
+    <description>As a user managing hospitality bookings, I want to ensure that the Check-Out Date on the Hospitality object is not earlier than the Check-In Date, so that booking timelines remain accurate and data inconsistencies are avoided</description>
+    <errorConditionFormula>Check_Out_Date_Time__c  &lt;=   Check_In_Date_Time__c</errorConditionFormula>
+    <errorDisplayField>Check_Out_Date_Time__c</errorDisplayField>
+    <errorMessage>Check-Out Date must be later than the Check-In Date</errorMessage>
+</ValidationRule>
