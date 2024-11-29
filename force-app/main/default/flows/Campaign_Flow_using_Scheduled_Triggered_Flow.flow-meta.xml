@@ -12,7 +12,7 @@
             <conditionLogic>and</conditionLogic>
             <conditions>
                 <leftValueReference>$Record.StartDate</leftValueReference>
-                <operator>LessThan</operator>
+                <operator>LessThanOrEqualTo</operator>
                 <rightValue>
                     <elementReference>$Flow.CurrentDate</elementReference>
                 </rightValue>
@@ -208,10 +208,10 @@ Additionally, the status should be Aborted if the active checkbox is left unchec
         <object>Campaign</object>
         <schedule>
             <frequency>Daily</frequency>
-            <startDate>2024-11-27</startDate>
-            <startTime>11:45:00.000Z</startTime>
+            <startDate>2024-11-28</startDate>
+            <startTime>01:00:00.000Z</startTime>
         </schedule>
         <triggerType>Scheduled</triggerType>
     </start>
-    <status>Active</status>
+    <status>Draft</status>
 </Flow>
