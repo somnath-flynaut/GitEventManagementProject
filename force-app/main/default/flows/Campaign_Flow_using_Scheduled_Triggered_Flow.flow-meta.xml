@@ -19,7 +19,7 @@
             </conditions>
             <conditions>
                 <leftValueReference>$Record.EndDate</leftValueReference>
-                <operator>GreaterThan</operator>
+                <operator>GreaterThanOrEqualTo</operator>
                 <rightValue>
                     <elementReference>$Flow.CurrentDate</elementReference>
                 </rightValue>
@@ -63,7 +63,7 @@
             <conditionLogic>and</conditionLogic>
             <conditions>
                 <leftValueReference>$Record.EndDate</leftValueReference>
-                <operator>EqualTo</operator>
+                <operator>LessThan</operator>
                 <rightValue>
                     <elementReference>$Flow.CurrentDate</elementReference>
                 </rightValue>
@@ -208,10 +208,10 @@ Additionally, the status should be Aborted if the active checkbox is left unchec
         <object>Campaign</object>
         <schedule>
             <frequency>Daily</frequency>
-            <startDate>2024-11-28</startDate>
-            <startTime>01:00:00.000Z</startTime>
+            <startDate>2024-11-29</startDate>
+            <startTime>10:00:00.000Z</startTime>
         </schedule>
         <triggerType>Scheduled</triggerType>
     </start>
-    <status>Draft</status>
+    <status>Active</status>
 </Flow>
