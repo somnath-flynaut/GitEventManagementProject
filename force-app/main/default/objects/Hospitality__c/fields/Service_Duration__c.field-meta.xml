@@ -2,8 +2,20 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Service_Duration__c</fullName>
     <externalId>false</externalId>
-    <formula>TEXT(FLOOR( Check_Out_Date_Time__c  -  Check_In_Date_Time__c )) &amp; 
-IF(FLOOR(Check_Out_Date_Time__c - Check_In_Date_Time__c ) = 1, &quot; Day&quot;, &quot; Days&quot;)</formula>
+    <formula>IF(
+    FLOOR((Check_Out_Date_Time__c - Check_In_Date_Time__c) * 1440 / 1440) &gt; 0,
+
+/* If condition gets true and days are greater than 0 then it will calculate in days and hours */
+    
+    TEXT(FLOOR((Check_Out_Date_Time__c - Check_In_Date_Time__c) * 1440 / 1440)) &amp; &quot; Days &quot; &amp;
+    TEXT(FLOOR(MOD((Check_Out_Date_Time__c - Check_In_Date_Time__c) * 1440, 1440) / 60)) &amp; &quot; Hours&quot;,
+
+/* If condition gets false and day is equal to 0 then it will calculate in Hours and Minutes */
+    
+    TEXT(FLOOR((Check_Out_Date_Time__c - Check_In_Date_Time__c))) &amp; &quot; Days, &quot; &amp;
+    TEXT(FLOOR((Check_Out_Date_Time__c - Check_In_Date_Time__c) * 1440 / 60)) &amp; &quot; Hours &quot; &amp;
+    TEXT(MOD((Check_Out_Date_Time__c - Check_In_Date_Time__c) * 1440, 60)) &amp; &quot; Minutes&quot;
+)</formula>
     <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
     <label>Service Duration</label>
     <required>false</required>
