@@ -62,14 +62,14 @@
                 <behavior>Edit</behavior>
                 <field>Event_Success_Rating__c</field>
             </layoutItems>
-            <layoutItems>
+            <!-- <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Event_Start_Date__c</field>
-            </layoutItems>
+            </layoutItems> 
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Event_End_Date__c</field>
-            </layoutItems>
+            </layoutItems>-->
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
