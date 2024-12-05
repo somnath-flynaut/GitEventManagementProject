@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Contact_Phone_Validation</fullName>
+    <active>true</active>
+    <description>Please enter valid Contact Phone number</description>
+    <errorConditionFormula>OR(
+NOT(BEGINS(  Contact_Phone__c  , &quot;+91 &quot;)),
+NOT(REGEX( Contact_Phone__c  , &quot;\\+91\\s[6-9]\\d{9}&quot;)),
+LEN(SUBSTITUTE( Contact_Phone__c  , &quot; &quot;, &quot;&quot;)) &lt;&gt; 13
+)</errorConditionFormula>
+    <errorDisplayField>Contact_Phone__c</errorDisplayField>
+    <errorMessage>Please enter valid 10 digit phone number with +91 country code</errorMessage>
+</ValidationRule>

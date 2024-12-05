@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Events_Managers__c</fullName>
+    <description>Lookup to the Event Manager who is responsible for this team member. Establishes the relationship to the Events_Managers__c object.</description>
+    <label>Events Managers</label>
+    <referenceTo>Events_Managers__c</referenceTo>
+    <relationshipLabel>Event Team Members</relationshipLabel>
+    <relationshipName>Event_Team_Members</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>
