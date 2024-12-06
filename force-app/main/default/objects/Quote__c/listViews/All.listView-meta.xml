@@ -6,7 +6,6 @@
     <columns>Quote_Status__c</columns>
     <columns>Expiration_Date__c</columns>
     <columns>Tax__c</columns>
-    <columns>Subtotal__c</columns>
     <columns>Discount__c</columns>
     <columns>Phone__c</columns>
     <filterScope>Everything</filterScope>
