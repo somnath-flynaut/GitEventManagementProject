@@ -38,8 +38,6 @@
                 <behavior>Edit</behavior>
                 <field>AnnualRevenue</field>
             </layoutItems>
-<<<<<<< HEAD
-=======
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Event_Description__c</field>
@@ -68,14 +66,10 @@
                 <behavior>Edit</behavior>
                 <field>Preferred_Communication_Method__c</field>
             </layoutItems>
->>>>>>> 7a7ed7556c618c22fdabd6ca5ff58012413baba8
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-<<<<<<< HEAD
-                <field>Phone</field>
-=======
                 <field>Event_Type__c</field>
             </layoutItems>
             <layoutItems>
@@ -89,7 +83,6 @@
             <layoutItems>
                 <behavior>Required</behavior>
                 <field>Status</field>
->>>>>>> 7a7ed7556c618c22fdabd6ca5ff58012413baba8
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -209,12 +202,6 @@
         <quickActionListItems>
             <quickActionName>NewEvent</quickActionName>
         </quickActionListItems>
-<<<<<<< HEAD
-        <quickActionListItems>
-            <quickActionName>FeedItem.RypplePost</quickActionName>
-        </quickActionListItems>
-=======
->>>>>>> 7a7ed7556c618c22fdabd6ca5ff58012413baba8
         <quickActionListItems>
             <quickActionName>FeedItem.LinkPost</quickActionName>
         </quickActionListItems>
