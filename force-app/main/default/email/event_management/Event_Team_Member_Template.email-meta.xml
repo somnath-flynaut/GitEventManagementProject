@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>UTF-8</encodingKey>
+    <letterhead>Event_Team_member_Letterhead</letterhead>
+    <name>Event Team Member Template</name>
+    <style>formalLetter</style>
+    <subject>New Event Assign</subject>
+    <textOnly>Hello {!Event_Team_Member__c.Name}
+
+You have been associated with the following event. Please find the event details below:
+
+Event Name - {!Event_Team_Member__c.Event_Details__c}
+Event Start Date - {!Event_Team_Member__c.Event_Start_Date__c}
+Event End Date -  {!Event_Team_Member__c.Event_End_Date__c}
+Event Manager -  {!Event_Team_Member__c.Events_Managers__c}
+Event Manager Phone Number - {!Events_Managers__c.Phone_Number__c}
+Event Manager Email - {!Events_Managers__c.Email__c}</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

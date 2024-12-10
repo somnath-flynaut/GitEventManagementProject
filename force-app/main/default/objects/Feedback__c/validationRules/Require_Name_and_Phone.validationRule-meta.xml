@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Require_Name_and_Phone</fullName>
+    <active>true</active>
+    <description>Ensures that the Name and Phone fields on the Feedback__c object are required
+when the Interested in Hosting an Event checkbox is checked.</description>
+    <errorConditionFormula>AND( Interested_in_Hosting_an_Event__c  = true,
+ OR( ISBLANK( Name__c ),
+ ISBLANK( Phone__c )  ) )</errorConditionFormula>
+    <errorMessage>Please provide both Name and Phone when selecting &apos;Interested in Hosting an Event&apos; to ensure we can follow up with you effectively.</errorMessage>
+</ValidationRule>
