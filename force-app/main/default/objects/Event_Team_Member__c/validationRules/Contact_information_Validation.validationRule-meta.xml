@@ -1,13 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Contact_information_Validation</fullName>
-    <active>true</active>
+    <active>false</active>
     <description>Please Enter a valid mobile number</description>
-    <errorConditionFormula>OR(
-    NOT(BEGINS( Contact_Information__c , &quot;+91 &quot;)),                        
-    NOT(REGEX(Contact_Information__c , &quot;\\+91\\s[6-9]\\d{9}&quot;)),          
-    LEN(SUBSTITUTE(Contact_Information__c , &quot; &quot;, &quot;&quot;)) &lt;&gt; 13             
+    <errorConditionFormula>NOT(
+  OR(
+    AND(
+      ISPICKVAL( Country_Code__c , &apos;India (+91)&apos;),
+      REGEX( Contact_Information__c , &quot;^[6-9][0-9]{9}$&quot;) /* India: Starts with 6-9, exactly 10 digits */
+    ),
+    AND(
+      ISPICKVAL( Country_Code__c , &apos;United States (+1)&apos;),
+      REGEX( Contact_Information__c , &quot;^[2-9][0-9]{9}$&quot;) /* US: Starts with 2-9, exactly 10 digits */
+    ),
+    AND(
+      ISPICKVAL( Country_Code__c , &apos;United Kingdom (+44)&apos;),
+      REGEX( Contact_Information__c , &quot;^[7][0-9]{9}$&quot;) /* UK: Starts with 7, exactly 10 digits */
+    ),
+    AND(
+      ISPICKVAL( Country_Code__c , &apos;Australia (+61)&apos;),
+       NOT(REGEX( Contact_Information__c , &quot;^[4][0-9]{8}$&quot;))  /* Australia: Starts with 4, exactly 9 digits */
+    ),
+    AND(
+      ISPICKVAL( Country_Code__c , &apos;Germany (+49&apos;),
+       REGEX( Contact_Information__c , &quot;^(15|16|17)[0-9]{8}$&quot;) /* Germany: Starts with 15, 16, or 17, exactly 10 digits */
+    ),
+    AND(
+      ISPICKVAL(  Country_Code__c  , &apos;France (+33)&apos;),
+      REGEX( Contact_Information__c , &quot;^[6|7][0-9]{8}$&quot;) /* France: Starts with 6 or 7, exactly 9 digits */
+    ),
+    AND(
+      ISPICKVAL(  Country_Code__c  , &apos;Italy (+39)&apos;),
+      REGEX(  Contact_Information__c  , &quot;^[3][0-9]{8,9}$&quot;) /* Italy: Starts with 3, exactly 8–9 digits */
+    ),
+    AND(
+      ISPICKVAL( Country_Code__c , &apos;Brazil (+55)&apos;),
+      REGEX( Contact_Information__c , &quot;^[9][0-9]{8}$&quot;) /* Brazil: Starts with 9, exactly 9 digits */
+    ),
+    AND(
+      ISPICKVAL( Country_Code__c , &apos;China (+86)&apos;),
+      REGEX( Contact_Information__c , &quot;^(13|14|15|16|17|18|19)[0-9]{8}$&quot;) /* China: Starts with 13–19, exactly 11 digits */
+    ),
+    AND(
+      ISPICKVAL( Country_Code__c , &apos;Japan (+81)&apos;),
+      REGEX( Contact_Information__c , &quot;^(70|80|90)[0-9]{8}$&quot;) /* Japan: Starts with 70, 80, or 90, exactly 10 digits */
+    ),
+    AND(
+      ISPICKVAL( Country_Code__c , &apos;South Korea (+82)&apos;),
+      REGEX( Contact_Information__c , &quot;^(10|11|16|17|18|19)[0-9]{8}$&quot;) /* South Korea: Starts with 10, 11, 16–19, exactly 10 digits */
+    )
+  )
 )</errorConditionFormula>
     <errorDisplayField>Contact_Information__c</errorDisplayField>
-    <errorMessage>Please enter valid 10 digit phone number with +91 country code</errorMessage>
+    <errorMessage>Please enter valid phone number</errorMessage>
 </ValidationRule>
