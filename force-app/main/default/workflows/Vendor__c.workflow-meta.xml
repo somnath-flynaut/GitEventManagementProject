@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Email_alert_for_notify_expiry_date_to_vendor</fullName>
+        <description>Email alert for notify expiry date to vendor</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Contact_Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>event_managem/Notify_to_Vendor</template>
+    </alerts>
+</Workflow>
