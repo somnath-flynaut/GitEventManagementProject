@@ -51,5 +51,5 @@ REGEX( Phone__c , &quot;^(10|11|16|17|18|19)[0-9]{8}$&quot;) /* South Korea: Sta
 )
 )</errorConditionFormula>
     <errorDisplayField>Phone__c</errorDisplayField>
-    <errorMessage>Please enter valid Phone number</errorMessage>
+    <errorMessage>Please enter valid Phone number And Country Code</errorMessage>
 </ValidationRule>
