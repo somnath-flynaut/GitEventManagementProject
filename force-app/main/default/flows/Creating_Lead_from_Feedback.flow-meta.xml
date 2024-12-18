@@ -655,7 +655,7 @@ REGEX( {!$Record.Phone__c} , &quot;^(10|11|16|17|18|19)[0-9]{8}$&quot;) /* South
         <recordTriggerType>Create</recordTriggerType>
         <triggerType>RecordAfterSave</triggerType>
     </start>
-    <status>Active</status>
+    <status>Obsolete</status>
     <variables>
         <name>FeedbackName</name>
         <dataType>String</dataType>
