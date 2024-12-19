@@ -1,10 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionCalls>
+        <name>Email_To_Event_Member_Updated_Records</name>
+        <label>Email To Event Member Updated Records</label>
+        <locationX>1027</locationX>
+        <locationY>440</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>$Record.Email__c</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>Assign New Event</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>TextTemplate</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
+        <versionSegment>1</versionSegment>
+    </actionCalls>
+    <actionCalls>
         <name>Send_Email_To_Team_Member</name>
         <label>Send Email To Team Member</label>
-        <locationX>1017</locationX>
-        <locationY>171</locationY>
+        <locationX>1183</locationX>
+        <locationY>175</locationY>
         <actionName>emailSimple</actionName>
         <actionType>emailSimple</actionType>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
@@ -52,10 +88,7 @@
         <name>Decide_that_Event_Detail_Is_Changes_or_Not</name>
         <label>Decide that Event Detail Is Changes or Not</label>
         <locationX>888</locationX>
-        <locationY>282</locationY>
-        <defaultConnector>
-            <targetReference>Send_Email_To_Team_Member</targetReference>
-        </defaultConnector>
+        <locationY>281</locationY>
         <defaultConnectorLabel>Event Detail Not Changed</defaultConnectorLabel>
         <rules>
             <name>Event_Detail_Is_Changed</name>
@@ -71,6 +104,21 @@
                 <targetReference>Create_Member_Using_Old_Values</targetReference>
             </connector>
             <label>Event Detail Is Changed</label>
+        </rules>
+        <rules>
+            <name>Event_Team_Member_Created</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Name</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record__Prior.Name</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Send_Email_To_Team_Member</targetReference>
+            </connector>
+            <label>Event Team Member Created</label>
         </rules>
     </decisions>
     <decisions>
@@ -118,7 +166,7 @@ REGEX( {!$Record.Contact_Information__c}, &quot;^[7][0-9]{9}$&quot;) /* UK: Star
 ),
 AND(
 ISPICKVAL( {!$Record.Country_Code__c}, &apos;Australia (+61)&apos;),
-NOT(REGEX( {!$Record.Contact_Information__c}, &quot;^[4][0-9]{8}$&quot;)) /* Australia: Starts with 4, exactly 9 digits */
+REGEX( {!$Record.Contact_Information__c}, &quot;^[4][0-9]{8}$&quot;) /* Australia: Starts with 4, exactly 9 digits */
 ),
 AND(
 ISPICKVAL( {!$Record.Country_Code__c}, &apos;Germany (+49&apos;),
@@ -177,6 +225,9 @@ REGEX( {!$Record.Contact_Information__c}, &quot;^(10|11|16|17|18|19)[0-9]{8}$&qu
         <label>Create Member Using Old Values</label>
         <locationX>837</locationX>
         <locationY>484</locationY>
+        <connector>
+            <targetReference>Email_To_Event_Member_Updated_Records</targetReference>
+        </connector>
         <inputAssignments>
             <field>Contact_Information__c</field>
             <value>
@@ -325,6 +376,6 @@ REGEX( {!$Record.Contact_Information__c}, &quot;^(10|11|16|17|18|19)[0-9]{8}$&qu
     <textTemplates>
         <name>TextTemplate</name>
         <isViewedAsPlainText>false</isViewedAsPlainText>
-        <text>&lt;p&gt;&lt;strong&gt;&lt;span class=&quot;ql-cursor&quot;&gt;﻿&lt;/span&gt;Hello&lt;/strong&gt;&amp;nbsp;{!$Record.Name}}&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-family: arial;&quot;&gt;You have been associated with the following event. Please find the event details below:&amp;nbsp;&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-family: arial;&quot;&gt;Event Name&lt;/strong&gt;&lt;span style=&quot;font-family: arial;&quot;&gt; -{!$Record.Event_Details__r.Name}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-family: arial;&quot;&gt;Event Start Date &lt;/strong&gt;&lt;span style=&quot;font-family: arial;&quot;&gt;-&amp;nbsp;{!$Record.Event_Start_Date__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-family: arial;&quot;&gt;Event End Date&lt;/strong&gt;&lt;span style=&quot;font-family: arial;&quot;&gt; -&amp;nbsp;&amp;nbsp;{{!$Record.Event_End_Date__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-family: arial;&quot;&gt;Event Manager&lt;/strong&gt;&lt;span style=&quot;font-family: arial;&quot;&gt; -&amp;nbsp;&amp;nbsp;{!$Record.Events_Managers__r.Name}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-family: arial;&quot;&gt;Event Manager Phone Number&lt;/strong&gt;&lt;span style=&quot;font-family: arial;&quot;&gt; -&amp;nbsp;{!$Record.Events_Managers__r.Phone_Number__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-family: arial;&quot;&gt;Event Manager Email&lt;/strong&gt;&lt;span style=&quot;font-family: arial;&quot;&gt; -&amp;nbsp;{!$Record.Events_Managers__r.Email__c}&lt;/span&gt;&lt;/p&gt;</text>
+        <text>&lt;p&gt;&lt;strong&gt;﻿Hello&lt;/strong&gt;&amp;nbsp;{!$Record.Name}&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-family: arial;&quot;&gt;You have been associated with the following event. Please find the event details below:&amp;nbsp;&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-family: arial;&quot;&gt;Event Name&lt;/strong&gt;&lt;span style=&quot;font-family: arial;&quot;&gt; -{!$Record.Event_Details__r.Name}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-family: arial;&quot;&gt;Event Start Date &lt;/strong&gt;&lt;span style=&quot;font-family: arial;&quot;&gt;-&amp;nbsp;{!$Record.Event_Start_Date__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-family: arial;&quot;&gt;Event End Date&lt;/strong&gt;&lt;span style=&quot;font-family: arial;&quot;&gt; -&amp;nbsp;&amp;nbsp;{!$Record.Event_End_Date__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-family: arial;&quot;&gt;Event Manager&lt;/strong&gt;&lt;span style=&quot;font-family: arial;&quot;&gt; -&amp;nbsp;&amp;nbsp;{!$Record.Events_Managers__r.Name}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-family: arial;&quot;&gt;Event Manager Phone Number&lt;/strong&gt;&lt;span style=&quot;font-family: arial;&quot;&gt; -&amp;nbsp;{!$Record.Events_Managers__r.Phone_Number__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-family: arial;&quot;&gt;Event Manager Email&lt;/strong&gt;&lt;span style=&quot;font-family: arial;&quot;&gt; -&amp;nbsp;{!$Record.Events_Managers__r.Email__c}&lt;/span&gt;&lt;/p&gt;</text>
     </textTemplates>
 </Flow>
