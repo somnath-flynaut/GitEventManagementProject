@@ -1,0 +1,617 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>62.0</apiVersion>
+    <customErrors>
+        <name>ERROR</name>
+        <label>ERROR</label>
+        <locationX>295</locationX>
+        <locationY>315</locationY>
+        <customErrorMessages>
+            <errorMessage>PLEASE ADD VALID MOBILE NUMBER</errorMessage>
+            <fieldSelection>Phone_Number__c</fieldSelection>
+            <isFieldError>true</isFieldError>
+        </customErrorMessages>
+    </customErrors>
+    <decisions>
+        <name>ASSIGNVALUES_TO_COUNTRY_CODE</name>
+        <label>ASSIGNVALUES TO COUNTRY CODE</label>
+        <locationX>581</locationX>
+        <locationY>308</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>INDIA</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Country_Code__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>India (+91)</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>UPDATE_INDIA_PHONE_NUMBER</targetReference>
+            </connector>
+            <label>INDIA</label>
+        </rules>
+        <rules>
+            <name>CHINA</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Country_Code__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>China (+86)</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>UPDATE_CHINA_PHONE_NUMBER</targetReference>
+            </connector>
+            <label>CHINA</label>
+        </rules>
+        <rules>
+            <name>FRANCE</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Country_Code__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>France (+33)</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>UPDATE_FRANCE_PHONE_NUMBER</targetReference>
+            </connector>
+            <label>FRANCE</label>
+        </rules>
+        <rules>
+            <name>GERMANY</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Country_Code__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Germany (+49)</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>UPDATE_GERMANY_PHONE_NUMBER</targetReference>
+            </connector>
+            <label>GERMANY</label>
+        </rules>
+        <rules>
+            <name>BRAZIL</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Country_Code__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Brazil (+55)</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>UPDATE_BRAZIL_PHONE_NUMBER</targetReference>
+            </connector>
+            <label>BRAZIL</label>
+        </rules>
+        <rules>
+            <name>JAPAN</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Country_Code__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Japan (+81)</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>UPDATE_JAPAN_PHONE_NUMBER</targetReference>
+            </connector>
+            <label>JAPAN</label>
+        </rules>
+        <rules>
+            <name>SOUTH_KORIA</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Country_Code__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>South Korea (+82)</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>UPDATE_SOUTH_KORIA_PHONE_NUMBER</targetReference>
+            </connector>
+            <label>SOUTH KORIA</label>
+        </rules>
+        <rules>
+            <name>UNITED_STATES</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Country_Code__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>United States (+1)</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>UPDATE_UNITED_STATE_PHONE_NUMBER</targetReference>
+            </connector>
+            <label>UNITED STATES</label>
+        </rules>
+        <rules>
+            <name>UNITED_KINGDOM</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Country_Code__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>United Kingdom (+44)</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>UPDATE_UNITED_KINGDOM_PHONE_NUMBER</targetReference>
+            </connector>
+            <label>UNITED KINGDOM</label>
+        </rules>
+        <rules>
+            <name>AUSTRALIA</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Country_Code__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Australia (+61)</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>UPDATE_AUSTRALIA_PHONE_NUMBER</targetReference>
+            </connector>
+            <label>AUSTRALIA</label>
+        </rules>
+        <rules>
+            <name>ITALY</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Country_Code__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Italy (+39)</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>UPDATE_ITALY_PHONE_NUMBER</targetReference>
+            </connector>
+            <label>ITALY</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Check_Phone_Number_Validation</name>
+        <label>Check Phone Number Validation</label>
+        <locationX>420</locationX>
+        <locationY>305</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>ISVALID</name>
+            <conditionLogic>1</conditionLogic>
+            <conditions>
+                <leftValueReference>IsValidPhoneNumber</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>ASSIGNVALUES_TO_COUNTRY_CODE</targetReference>
+            </connector>
+            <label>ISVALID</label>
+        </rules>
+        <rules>
+            <name>ISNOTVALID</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>IsValidPhoneNumber</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>ERROR</targetReference>
+            </connector>
+            <label>ISNOTVALID</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <formulas>
+        <name>AUSTRALIAFORMULA</name>
+        <dataType>String</dataType>
+        <expression>{!AUSTRALIAVARIABLE}+&apos; &apos;+{!$Record.Phone_Number__c}</expression>
+    </formulas>
+    <formulas>
+        <name>BRAZILFORMULA</name>
+        <dataType>String</dataType>
+        <expression>{!BRAZILVARIABLE}+&apos; &apos;+{!$Record.Phone_Number__c}</expression>
+    </formulas>
+    <formulas>
+        <name>CHINAFORMULA</name>
+        <dataType>String</dataType>
+        <expression>{!CHINAVARIABLE}+&apos; &apos;+{!$Record.Phone_Number__c}</expression>
+    </formulas>
+    <formulas>
+        <name>FRANCEFORMULA</name>
+        <dataType>String</dataType>
+        <expression>{!FRANCEVARIABLE}+&apos; &apos;+{!$Record.Phone_Number__c}</expression>
+    </formulas>
+    <formulas>
+        <name>GERMANYFORMULA</name>
+        <dataType>String</dataType>
+        <expression>{!GERMANYVARIABLE}+&apos; &apos;+{!$Record.Phone_Number__c}</expression>
+    </formulas>
+    <formulas>
+        <name>INDIAFORMULA</name>
+        <dataType>String</dataType>
+        <expression>{!INDIAVARIABLE}+&apos; &apos;+{!$Record.Phone_Number__c}</expression>
+    </formulas>
+    <formulas>
+        <name>IsValidPhoneNumber</name>
+        <dataType>Boolean</dataType>
+        <expression>NOT(
+OR(
+AND(
+ISPICKVAL( {!$Record.Country_Code__c} , &apos;India (+91)&apos;),
+REGEX( {!$Record.Phone_Number__c} , &quot;^[6-9][0-9]{9}$&quot;) /* India: Starts with 6-9, exactly 10 digits */
+),
+AND(
+ISPICKVAL( {!$Record.Country_Code__c} , &apos;United States (+1)&apos;),
+REGEX( {!$Record.Phone_Number__c} , &quot;^[2-9][0-9]{9}$&quot;) /* US: Starts with 2-9, exactly 10 digits */
+),
+AND(
+ISPICKVAL( {!$Record.Country_Code__c} , &apos;United Kingdom (+44)&apos;),
+REGEX( {!$Record.Phone_Number__c} , &quot;^[7][0-9]{9}$&quot;) /* UK: Starts with 7, exactly 10 digits */
+),
+AND(
+ISPICKVAL( {!$Record.Country_Code__c} , &apos;Australia (+61)&apos;),
+NOT(REGEX( {!$Record.Phone_Number__c} , &quot;^[4][0-9]{8}$&quot;)) /* Australia: Starts with 4, exactly 9 digits */
+),
+AND(
+ISPICKVAL( {!$Record.Country_Code__c} , &apos;Germany (+49)&apos;),
+REGEX( {!$Record.Phone_Number__c} , &quot;^(15|16|17)[0-9]{8}$&quot;) /* Germany: Starts with 15, 16, or 17, exactly 10 digits */
+),
+AND(
+ISPICKVAL( {!$Record.Country_Code__c} , &apos;France (+33)&apos;),
+REGEX( {!$Record.Phone_Number__c} , &quot;^[6|7][0-9]{8}$&quot;) /* France: Starts with 6 or 7, exactly 9 digits */
+),
+AND(
+ISPICKVAL( {!$Record.Country_Code__c} , &apos;Italy (+39)&apos;),
+REGEX( {!$Record.Phone_Number__c} , &quot;^[3][0-9]{8,9}$&quot;) /* Italy: Starts with 3, exactly 8–9 digits */
+),
+AND(
+ISPICKVAL( {!$Record.Country_Code__c} , &apos;Brazil (+55)&apos;),
+REGEX( {!$Record.Phone_Number__c} , &quot;^[9][0-9]{8}$&quot;) /* Brazil: Starts with 9, exactly 9 digits */
+),
+AND(
+ISPICKVAL( {!$Record.Country_Code__c} , &apos;China (+86)&apos;),
+REGEX( {!$Record.Phone_Number__c} , &quot;^(13|14|15|16|17|18|19)[0-9]{8}$&quot;) /* China: Starts with 13–19, exactly 11 digits */
+),
+AND(
+ISPICKVAL( {!$Record.Country_Code__c} , &apos;Japan (+81)&apos;),
+REGEX( {!$Record.Phone_Number__c} , &quot;^(70|80|90)[0-9]{8}$&quot;) /* Japan: Starts with 70, 80, or 90, exactly 10 digits */
+),
+AND(
+ISPICKVAL( {!$Record.Country_Code__c} , &apos;South Korea (+82)&apos;),
+REGEX( {!$Record.Phone_Number__c} , &quot;^(10|11|16|17|18|19)[0-9]{8}$&quot;) /* South Korea: Starts with 10, 11, 16–19, exactly 10 digits */
+)
+)
+)</expression>
+    </formulas>
+    <formulas>
+        <name>ITALYFORMULA</name>
+        <dataType>String</dataType>
+        <expression>{!ITALYVARIABLE}+&apos; &apos;+{!$Record.Phone_Number__c}</expression>
+    </formulas>
+    <formulas>
+        <name>JAPANFORMULA</name>
+        <dataType>String</dataType>
+        <expression>{!JAPANVARIABLE}+&apos; &apos;+{!$Record.Phone_Number__c}</expression>
+    </formulas>
+    <formulas>
+        <name>SOUTHKORIA</name>
+        <dataType>String</dataType>
+        <expression>{!SOUTHKORIAVARIABLE}+&apos; &apos;+{!$Record.Phone_Number__c}</expression>
+    </formulas>
+    <formulas>
+        <name>UNITEDKINGDOMFORMULA</name>
+        <dataType>String</dataType>
+        <expression>{!UNITEDKINGDOMVARIABLE}+&apos; &apos;+{!$Record.Phone_Number__c}</expression>
+    </formulas>
+    <formulas>
+        <name>UNITEDSTATESFORMULA</name>
+        <dataType>String</dataType>
+        <expression>{!UNITEDSTATESVARIABLE}+&apos; &apos;+{!$Record.Phone_Number__c}</expression>
+    </formulas>
+    <interviewLabel>Phone Number Validation for Event Manager {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Phone Number Validation for Event Manager</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>UPDATE_AUSTRALIA_PHONE_NUMBER</name>
+        <label>UPDATE AUSTRALIA PHONE NUMBER</label>
+        <locationX>792</locationX>
+        <locationY>418</locationY>
+        <inputAssignments>
+            <field>Phone_Number__c</field>
+            <value>
+                <elementReference>AUSTRALIAFORMULA</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>UPDATE_BRAZIL_PHONE_NUMBER</name>
+        <label>UPDATE BRAZIL PHONE NUMBER</label>
+        <locationX>49</locationX>
+        <locationY>54</locationY>
+        <inputAssignments>
+            <field>Phone_Number__c</field>
+            <value>
+                <elementReference>BRAZILFORMULA</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>UPDATE_CHINA_PHONE_NUMBER</name>
+        <label>UPDATE CHINA PHONE NUMBER</label>
+        <locationX>783</locationX>
+        <locationY>250</locationY>
+        <inputAssignments>
+            <field>Phone_Number__c</field>
+            <value>
+                <elementReference>CHINAFORMULA</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>UPDATE_FRANCE_PHONE_NUMBER</name>
+        <label>UPDATE FRANCE PHONE NUMBER</label>
+        <locationX>918</locationX>
+        <locationY>86</locationY>
+        <inputAssignments>
+            <field>Phone_Number__c</field>
+            <value>
+                <elementReference>FRANCEFORMULA</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>UPDATE_GERMANY_PHONE_NUMBER</name>
+        <label>UPDATE GERMANY PHONE NUMBER</label>
+        <locationX>30</locationX>
+        <locationY>270</locationY>
+        <inputAssignments>
+            <field>Phone_Number__c</field>
+            <value>
+                <elementReference>GERMANYFORMULA</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>UPDATE_INDIA_PHONE_NUMBER</name>
+        <label>UPDATE INDIA PHONE NUMBER</label>
+        <locationX>762</locationX>
+        <locationY>97</locationY>
+        <inputAssignments>
+            <field>Phone_Number__c</field>
+            <value>
+                <elementReference>INDIAFORMULA</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>UPDATE_ITALY_PHONE_NUMBER</name>
+        <label>UPDATE ITALY PHONE NUMBER</label>
+        <locationX>916</locationX>
+        <locationY>238</locationY>
+        <inputAssignments>
+            <field>Phone_Number__c</field>
+            <value>
+                <elementReference>ITALYFORMULA</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>UPDATE_JAPAN_PHONE_NUMBER</name>
+        <label>UPDATE JAPAN PHONE NUMBER</label>
+        <locationX>927</locationX>
+        <locationY>405</locationY>
+        <inputAssignments>
+            <field>Phone_Number__c</field>
+            <value>
+                <elementReference>JAPANFORMULA</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>UPDATE_SOUTH_KORIA_PHONE_NUMBER</name>
+        <label>UPDATE SOUTH KORIA PHONE NUMBER</label>
+        <locationX>139</locationX>
+        <locationY>380</locationY>
+        <inputAssignments>
+            <field>Phone_Number__c</field>
+            <value>
+                <elementReference>SOUTHKORIA</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>UPDATE_UNITED_KINGDOM_PHONE_NUMBER</name>
+        <label>UPDATE UNITED KINGDOM PHONE NUMBER</label>
+        <locationX>140</locationX>
+        <locationY>203</locationY>
+        <inputAssignments>
+            <field>Phone_Number__c</field>
+            <value>
+                <elementReference>UNITEDKINGDOMFORMULA</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>UPDATE_UNITED_STATE_PHONE_NUMBER</name>
+        <label>UPDATE UNITED STATE PHONE NUMBER</label>
+        <locationX>152</locationX>
+        <locationY>51</locationY>
+        <inputAssignments>
+            <field>Phone_Number__c</field>
+            <value>
+                <elementReference>UNITEDSTATESFORMULA</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>373</locationX>
+        <locationY>48</locationY>
+        <connector>
+            <targetReference>Check_Phone_Number_Validation</targetReference>
+        </connector>
+        <object>Events_Managers__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>AUSTRALIAVARIABLE</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <value>
+            <stringValue>+61</stringValue>
+        </value>
+    </variables>
+    <variables>
+        <name>BRAZILVARIABLE</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <value>
+            <stringValue>+55</stringValue>
+        </value>
+    </variables>
+    <variables>
+        <name>CHINAVARIABLE</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <value>
+            <stringValue>+86</stringValue>
+        </value>
+    </variables>
+    <variables>
+        <name>FRANCEVARIABLE</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <value>
+            <stringValue>+33</stringValue>
+        </value>
+    </variables>
+    <variables>
+        <name>GERMANYVARIABLE</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <value>
+            <stringValue>+49</stringValue>
+        </value>
+    </variables>
+    <variables>
+        <name>INDIAVARIABLE</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <value>
+            <stringValue>+91</stringValue>
+        </value>
+    </variables>
+    <variables>
+        <name>ITALYVARIABLE</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <value>
+            <stringValue>+39</stringValue>
+        </value>
+    </variables>
+    <variables>
+        <name>JAPANVARIABLE</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <value>
+            <stringValue>+81</stringValue>
+        </value>
+    </variables>
+    <variables>
+        <name>SOUTHKORIAVARIABLE</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <value>
+            <stringValue>+82</stringValue>
+        </value>
+    </variables>
+    <variables>
+        <name>UNITEDKINGDOMVARIABLE</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <value>
+            <stringValue>+44</stringValue>
+        </value>
+    </variables>
+    <variables>
+        <name>UNITEDSTATESVARIABLE</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <value>
+            <stringValue>+1</stringValue>
+        </value>
+    </variables>
+</Flow>
