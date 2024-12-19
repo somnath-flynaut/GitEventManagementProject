@@ -169,7 +169,7 @@ ISPICKVAL( {!$Record.Country_Code__c}, &apos;Australia (+61)&apos;),
 REGEX( {!$Record.Contact_Information__c}, &quot;^[4][0-9]{8}$&quot;) /* Australia: Starts with 4, exactly 9 digits */
 ),
 AND(
-ISPICKVAL( {!$Record.Country_Code__c}, &apos;Germany (+49&apos;),
+ISPICKVAL( {!$Record.Country_Code__c}, &apos;Germany (+49)&apos;),
 REGEX( {!$Record.Contact_Information__c}, &quot;^(15|16|17)[0-9]{8}$&quot;) /* Germany: Starts with 15, 16, or 17, exactly 10 digits */
 ),
 AND(
@@ -186,7 +186,7 @@ REGEX( {!$Record.Contact_Information__c}, &quot;^[9][0-9]{8}$&quot;) /* Brazil: 
 ),
 AND(
 ISPICKVAL( {!$Record.Country_Code__c}, &apos;China (+86)&apos;),
-REGEX( {!$Record.Contact_Information__c}, &quot;^(13|14|15|16|17|18|19)[0-9]{8}$&quot;) /* China: Starts with 13–19, exactly 11 digits */
+REGEX( {!$Record.Contact_Information__c}, &quot;^(13|14|15|16|17|18|19)[0-9]{9}$&quot;) /* China: Starts with 13–19, exactly 11 digits */
 ),
 AND(
 ISPICKVAL( {!$Record.Country_Code__c}, &apos;Japan (+81)&apos;),
