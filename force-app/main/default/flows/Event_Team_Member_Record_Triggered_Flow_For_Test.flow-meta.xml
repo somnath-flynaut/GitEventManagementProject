@@ -3,10 +3,13 @@
     <actionCalls>
         <name>Email_To_Event_Member_Updated_Records</name>
         <label>Email To Event Member Updated Records</label>
-        <locationX>1027</locationX>
+        <locationX>1469</locationX>
         <locationY>440</locationY>
         <actionName>emailSimple</actionName>
         <actionType>emailSimple</actionType>
+        <connector>
+            <targetReference>ready_for_the_next_execution</targetReference>
+        </connector>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
             <name>emailAddresses</name>
@@ -17,7 +20,7 @@
         <inputParameters>
             <name>emailSubject</name>
             <value>
-                <stringValue>Assign New Event</stringValue>
+                <stringValue>Assign New Event Update</stringValue>
             </value>
         </inputParameters>
         <inputParameters>
@@ -39,10 +42,13 @@
     <actionCalls>
         <name>Send_Email_To_Team_Member</name>
         <label>Send Email To Team Member</label>
-        <locationX>1183</locationX>
-        <locationY>175</locationY>
+        <locationX>1627</locationX>
+        <locationY>166</locationY>
         <actionName>emailSimple</actionName>
         <actionType>emailSimple</actionType>
+        <connector>
+            <targetReference>ready_for_the_next_execution</targetReference>
+        </connector>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
             <name>emailAddresses</name>
@@ -53,7 +59,7 @@
         <inputParameters>
             <name>emailSubject</name>
             <value>
-                <stringValue>Event Assign To You</stringValue>
+                <stringValue>Event Assign To You Create</stringValue>
             </value>
         </inputParameters>
         <inputParameters>
@@ -72,7 +78,75 @@
         <offset>0</offset>
         <versionSegment>1</versionSegment>
     </actionCalls>
+    <actionCalls>
+        <name>UpdateFieldEmail</name>
+        <label>UpdateFieldEmail</label>
+        <locationX>1424</locationX>
+        <locationY>308</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <connector>
+            <targetReference>ready_for_the_next_execution</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>$Record.Email__c</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>Your record Information has been changed</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>FieldUpdateTemp</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
+        <versionSegment>1</versionSegment>
+    </actionCalls>
     <apiVersion>62.0</apiVersion>
+    <assignments>
+        <name>flowdoes_not_retrigger</name>
+        <label>flowdoes not retrigger</label>
+        <locationX>980</locationX>
+        <locationY>449</locationY>
+        <assignmentItems>
+            <assignToReference>IsFlowExecuted</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Decide_that_Event_Detail_Is_Changes_or_Not</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>ready_for_the_next_execution</name>
+        <label>ready for the next execution</label>
+        <locationX>1765</locationX>
+        <locationY>353</locationY>
+        <assignmentItems>
+            <assignToReference>IsFlowExecuted</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </assignmentItems>
+    </assignments>
     <customErrors>
         <name>ErrorMessage</name>
         <label>ErrorMessage</label>
@@ -87,9 +161,9 @@
     <decisions>
         <name>Decide_that_Event_Detail_Is_Changes_or_Not</name>
         <label>Decide that Event Detail Is Changes or Not</label>
-        <locationX>888</locationX>
-        <locationY>281</locationY>
-        <defaultConnectorLabel>Event Detail Not Changed</defaultConnectorLabel>
+        <locationX>1099</locationX>
+        <locationY>245</locationY>
+        <defaultConnectorLabel>New Create Record</defaultConnectorLabel>
         <rules>
             <name>Event_Detail_Is_Changed</name>
             <conditionLogic>and</conditionLogic>
@@ -106,26 +180,104 @@
             <label>Event Detail Is Changed</label>
         </rules>
         <rules>
-            <name>Event_Team_Member_Created</name>
+            <name>UpdateOtherFields</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Role__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Country_Code__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Contact_Information__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Email__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Team_Member_Status__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Events_Managers__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Team_Member_Rating__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Type_Of_Job__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Emergency_Contact_Number__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Shift_Timings__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>UpdateFieldEmail</targetReference>
+            </connector>
+            <label>UpdateOtherFields</label>
+        </rules>
+        <rules>
+            <name>Create_Record_Email</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>$Record.Name</leftValueReference>
-                <operator>NotEqualTo</operator>
+                <leftValueReference>$Record.Is_Duplicate__c</leftValueReference>
+                <operator>EqualTo</operator>
                 <rightValue>
-                    <elementReference>$Record__Prior.Name</elementReference>
+                    <booleanValue>false</booleanValue>
                 </rightValue>
             </conditions>
             <connector>
                 <targetReference>Send_Email_To_Team_Member</targetReference>
             </connector>
-            <label>Event Team Member Created</label>
+            <label>Create Record Email</label>
         </rules>
     </decisions>
     <decisions>
         <name>Validation_Rule</name>
         <label>Validation Rule</label>
-        <locationX>307</locationX>
-        <locationY>255</locationY>
+        <locationX>305</locationX>
+        <locationY>268</locationY>
         <defaultConnector>
             <targetReference>ErrorMessage</targetReference>
         </defaultConnector>
@@ -135,6 +287,13 @@
             <conditionLogic>and</conditionLogic>
             <conditions>
                 <leftValueReference>VALIDATEPHONE</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>IsFlowExecuted</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
                     <booleanValue>false</booleanValue>
@@ -223,8 +382,8 @@ REGEX( {!$Record.Contact_Information__c}, &quot;^(10|11|16|17|18|19)[0-9]{8}$&qu
     <recordCreates>
         <name>Create_Member_Using_Old_Values</name>
         <label>Create Member Using Old Values</label>
-        <locationX>837</locationX>
-        <locationY>484</locationY>
+        <locationX>1151</locationX>
+        <locationY>513</locationY>
         <connector>
             <targetReference>Email_To_Event_Member_Updated_Records</targetReference>
         </connector>
@@ -271,6 +430,12 @@ REGEX( {!$Record.Contact_Information__c}, &quot;^(10|11|16|17|18|19)[0-9]{8}$&qu
             </value>
         </inputAssignments>
         <inputAssignments>
+            <field>Is_Duplicate__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
             <field>Name</field>
             <value>
                 <elementReference>$Record__Prior.Name</elementReference>
@@ -303,8 +468,8 @@ REGEX( {!$Record.Contact_Information__c}, &quot;^(10|11|16|17|18|19)[0-9]{8}$&qu
     <recordLookups>
         <name>Get_Event_Manager_Record</name>
         <label>Get Event Manager Record</label>
-        <locationX>591</locationX>
-        <locationY>387</locationY>
+        <locationX>611</locationX>
+        <locationY>472</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Update_start_Date_and_End_Date</targetReference>
@@ -324,10 +489,10 @@ REGEX( {!$Record.Contact_Information__c}, &quot;^(10|11|16|17|18|19)[0-9]{8}$&qu
     <recordUpdates>
         <name>Update_start_Date_and_End_Date</name>
         <label>Update start Date and End Date</label>
-        <locationX>743</locationX>
-        <locationY>332</locationY>
+        <locationX>785</locationX>
+        <locationY>488</locationY>
         <connector>
-            <targetReference>Decide_that_Event_Detail_Is_Changes_or_Not</targetReference>
+            <targetReference>flowdoes_not_retrigger</targetReference>
         </connector>
         <inputAssignments>
             <field>Event_End_Date__c</field>
@@ -374,8 +539,23 @@ REGEX( {!$Record.Contact_Information__c}, &quot;^(10|11|16|17|18|19)[0-9]{8}$&qu
         <text>&lt;p&gt;&lt;strong&gt;Dear&lt;/strong&gt; &lt;strong&gt;&lt;u&gt;{!$Record.Name}&lt;/u&gt;&lt;/strong&gt; ,&lt;/p&gt;&lt;p&gt;  &lt;strong style=&quot;font-size: 14px;&quot;&gt;You Have Been Associated with the Following Event. Please find the Event Details Below -&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;  &lt;/span&gt;&lt;/p&gt;&lt;p&gt;  &lt;strong&gt;Event Name&lt;/strong&gt; - {!$Record.Event_Details__r.Name}&lt;/p&gt;&lt;p&gt;  &lt;strong&gt;Event Start Date - &lt;/strong&gt;{!$Record.Event_Start_Date__c}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;  Event End Date-  &lt;/strong&gt;{!$Record.Event_End_Date__c}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;  &lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;  &lt;/strong&gt;&lt;strong style=&quot;font-size: 14px;&quot;&gt;&lt;u&gt;Event Managers Details -&lt;/u&gt;&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;  Event Manager Name - &lt;/strong&gt;{!$Record.Events_Managers__r.Name}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;  Event Manager Phone - &lt;/strong&gt;{!$Record.Events_Managers__r.Phone_Number__c}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;  Event Manager Email - &lt;/strong&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;{!$Record.Events_Managers__r.Email__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Regards,&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Event Management Team&lt;/strong&gt;&lt;/p&gt;</text>
     </textTemplates>
     <textTemplates>
+        <name>FieldUpdateTemp</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;Hello {!$Record.Name},&lt;/p&gt;&lt;p&gt;   Your record has been updated please check once.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Thanks and Regards&lt;/p&gt;&lt;p&gt;Event Management Team&lt;/p&gt;</text>
+    </textTemplates>
+    <textTemplates>
         <name>TextTemplate</name>
         <isViewedAsPlainText>false</isViewedAsPlainText>
         <text>&lt;p&gt;&lt;strong&gt;﻿Hello&lt;/strong&gt;&amp;nbsp;{!$Record.Name}&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-family: arial;&quot;&gt;You have been associated with the following event. Please find the event details below:&amp;nbsp;&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-family: arial;&quot;&gt;Event Name&lt;/strong&gt;&lt;span style=&quot;font-family: arial;&quot;&gt; -{!$Record.Event_Details__r.Name}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-family: arial;&quot;&gt;Event Start Date &lt;/strong&gt;&lt;span style=&quot;font-family: arial;&quot;&gt;-&amp;nbsp;{!$Record.Event_Start_Date__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-family: arial;&quot;&gt;Event End Date&lt;/strong&gt;&lt;span style=&quot;font-family: arial;&quot;&gt; -&amp;nbsp;&amp;nbsp;{!$Record.Event_End_Date__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-family: arial;&quot;&gt;Event Manager&lt;/strong&gt;&lt;span style=&quot;font-family: arial;&quot;&gt; -&amp;nbsp;&amp;nbsp;{!$Record.Events_Managers__r.Name}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-family: arial;&quot;&gt;Event Manager Phone Number&lt;/strong&gt;&lt;span style=&quot;font-family: arial;&quot;&gt; -&amp;nbsp;{!$Record.Events_Managers__r.Phone_Number__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-family: arial;&quot;&gt;Event Manager Email&lt;/strong&gt;&lt;span style=&quot;font-family: arial;&quot;&gt; -&amp;nbsp;{!$Record.Events_Managers__r.Email__c}&lt;/span&gt;&lt;/p&gt;</text>
     </textTemplates>
+    <variables>
+        <name>IsFlowExecuted</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <booleanValue>false</booleanValue>
+        </value>
+    </variables>
 </Flow>
