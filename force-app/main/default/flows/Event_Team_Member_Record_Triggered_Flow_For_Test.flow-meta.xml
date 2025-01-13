@@ -20,7 +20,11 @@
         <inputParameters>
             <name>emailSubject</name>
             <value>
-                <stringValue>Assign New Event Update</stringValue>
+
+                <stringValue>New upcoming Event has been assigned Notification</stringValue>
+
+               
+
             </value>
         </inputParameters>
         <inputParameters>
@@ -37,7 +41,6 @@
         </inputParameters>
         <nameSegment>emailSimple</nameSegment>
         <offset>0</offset>
-        <versionSegment>1</versionSegment>
     </actionCalls>
     <actionCalls>
         <name>Send_Email_To_Team_Member</name>
@@ -59,7 +62,8 @@
         <inputParameters>
             <name>emailSubject</name>
             <value>
-                <stringValue>Event Assign To You Create</stringValue>
+                <stringValue>New Event has been Assigned Notification</stringValue>
+
             </value>
         </inputParameters>
         <inputParameters>
@@ -76,7 +80,44 @@
         </inputParameters>
         <nameSegment>emailSimple</nameSegment>
         <offset>0</offset>
-        <versionSegment>1</versionSegment>
+    </actionCalls>
+    <actionCalls>
+        <name>UpdateFieldEmail</name>
+        <label>UpdateFieldEmail</label>
+        <locationX>1424</locationX>
+        <locationY>308</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <connector>
+            <targetReference>ready_for_the_next_execution</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>$Record.Email__c</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>Profile Information update Notification </stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>FieldUpdateTemp</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
     </actionCalls>
     <actionCalls>
         <name>UpdateFieldEmail</name>
@@ -147,6 +188,25 @@
             </value>
         </assignmentItems>
     </assignments>
+
+    <assignments>
+        <name>RecordId_Assignment</name>
+        <label>RecordId Assignment</label>
+        <locationX>1276</locationX>
+        <locationY>309</locationY>
+        <assignmentItems>
+            <assignToReference>RecordId</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>UpdateFieldEmail</targetReference>
+        </connector>
+    </assignments>
+
+
     <customErrors>
         <name>ErrorMessage</name>
         <label>ErrorMessage</label>
@@ -253,7 +313,9 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>UpdateFieldEmail</targetReference>
+
+                <targetReference>RecordId_Assignment</targetReference>
+
             </connector>
             <label>UpdateOtherFields</label>
         </rules>
@@ -536,7 +598,12 @@ REGEX( {!$Record.Contact_Information__c}, &quot;^(10|11|16|17|18|19)[0-9]{8}$&qu
     <textTemplates>
         <name>EmailTemplate</name>
         <isViewedAsPlainText>false</isViewedAsPlainText>
-        <text>&lt;p&gt;&lt;strong&gt;Dear&lt;/strong&gt; &lt;strong&gt;&lt;u&gt;{!$Record.Name}&lt;/u&gt;&lt;/strong&gt; ,&lt;/p&gt;&lt;p&gt;  &lt;strong style=&quot;font-size: 14px;&quot;&gt;You Have Been Associated with the Following Event. Please find the Event Details Below -&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;  &lt;/span&gt;&lt;/p&gt;&lt;p&gt;  &lt;strong&gt;Event Name&lt;/strong&gt; - {!$Record.Event_Details__r.Name}&lt;/p&gt;&lt;p&gt;  &lt;strong&gt;Event Start Date - &lt;/strong&gt;{!$Record.Event_Start_Date__c}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;  Event End Date-  &lt;/strong&gt;{!$Record.Event_End_Date__c}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;  &lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;  &lt;/strong&gt;&lt;strong style=&quot;font-size: 14px;&quot;&gt;&lt;u&gt;Event Managers Details -&lt;/u&gt;&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;  Event Manager Name - &lt;/strong&gt;{!$Record.Events_Managers__r.Name}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;  Event Manager Phone - &lt;/strong&gt;{!$Record.Events_Managers__r.Phone_Number__c}&lt;/p&gt;&lt;p&gt;&lt;strong&gt;  Event Manager Email - &lt;/strong&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;{!$Record.Events_Managers__r.Email__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Regards,&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Event Management Team&lt;/strong&gt;&lt;/p&gt;</text>
+        <text>&lt;p&gt;&lt;strong&gt;Dear&lt;/strong&gt; &lt;strong&gt;&lt;u&gt;{!$Record.Name}&lt;/u&gt;&lt;/strong&gt; ,&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-family: Calibri, sans-serif; font-size: 11pt;&quot;&gt;We hope this message finds you well .“Welcome to Event Management Team! We’re delighted to have you join us.&quot; We are excited to inform you that you have been assigned to manage the following event. Please find the event details below for your reference:&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-size: 14px;&quot;&gt;&lt;u&gt;Event Details -&lt;/u&gt;&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;  &lt;strong&gt;Event Name&lt;/strong&gt; - {!$Record.Event_Details__r.Name}&lt;/li&gt;&lt;li&gt;  &lt;strong&gt;Event Start Date - &lt;/strong&gt;{!$Record.Event_Start_Date__c}&lt;/li&gt;&lt;li&gt;&lt;strong&gt;  Event End Date-  &lt;/strong&gt;{!$Record.Event_End_Date__c}&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;strong&gt;  &lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-size: 14px;&quot;&gt;  &lt;u&gt;Event Managers Details -&lt;/u&gt;&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;  Event Manager Name - &lt;/strong&gt;{!$Record.Events_Managers__r.Name}&lt;/li&gt;&lt;li&gt;&lt;strong&gt;  Event Manager Phone - &lt;/strong&gt;{!$Record.Events_Managers__r.Phone_Number__c}&lt;/li&gt;&lt;li&gt;&lt;strong&gt;  Event Manager Email - &lt;/strong&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;{!$Record.Events_Managers__r.Email__c}&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;We encourage you to review the event details and connect with the event manager for further coordination or queries. Your expertise and dedication will undoubtedly contribute to the event’s success.&lt;/p&gt;&lt;p&gt; If you need any assistance, feel free to contact the Event Management Team at any time.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt; &lt;strong&gt;Warm Regards,&lt;/strong&gt;&lt;/p&gt;&lt;p&gt; &lt;strong&gt;Event Management Team&lt;/strong&gt;&lt;/p&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>FieldUpdateTemp</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;&lt;strong&gt;Dear {!$Record.Name},&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-family: Calibri, sans-serif; font-size: 11pt;&quot;&gt;We hope this message finds you well. We would like to inform you that your information has been updated. Please click the link below to review the changes made:&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-family: Calibri, sans-serif; font-size: 11pt;&quot;&gt;[View Your Updated Information]-&lt;/span&gt;&lt;span style=&quot;color: rgb(68, 68, 68); background-color: rgb(255, 255, 255);&quot;&gt;https://customer-saas-462-dev-ed.scratch.lightning.force.com/lightning/r/Event_Team_Member__c/{!RecordId}/view&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Your attention to this update is greatly appreciated. If you have any questions or require further assistance, please don’t hesitate to reach out to the Event Management Team.&lt;/p&gt;&lt;p&gt; &lt;/p&gt;&lt;p&gt; Thank you for your continued commitment!&lt;/p&gt;&lt;p&gt; &lt;/p&gt;&lt;p&gt; &lt;strong&gt;Warm Regards,&lt;/strong&gt;&lt;/p&gt;&lt;p&gt; &lt;strong&gt;Event Management Team&lt;/strong&gt;&lt;/p&gt;</text>
     </textTemplates>
     <textTemplates>
         <name>FieldUpdateTemp</name>
@@ -546,7 +613,7 @@ REGEX( {!$Record.Contact_Information__c}, &quot;^(10|11|16|17|18|19)[0-9]{8}$&qu
     <textTemplates>
         <name>TextTemplate</name>
         <isViewedAsPlainText>false</isViewedAsPlainText>
-        <text>&lt;p&gt;&lt;strong&gt;﻿Hello&lt;/strong&gt;&amp;nbsp;{!$Record.Name}&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-family: arial;&quot;&gt;You have been associated with the following event. Please find the event details below:&amp;nbsp;&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-family: arial;&quot;&gt;Event Name&lt;/strong&gt;&lt;span style=&quot;font-family: arial;&quot;&gt; -{!$Record.Event_Details__r.Name}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-family: arial;&quot;&gt;Event Start Date &lt;/strong&gt;&lt;span style=&quot;font-family: arial;&quot;&gt;-&amp;nbsp;{!$Record.Event_Start_Date__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-family: arial;&quot;&gt;Event End Date&lt;/strong&gt;&lt;span style=&quot;font-family: arial;&quot;&gt; -&amp;nbsp;&amp;nbsp;{!$Record.Event_End_Date__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-family: arial;&quot;&gt;Event Manager&lt;/strong&gt;&lt;span style=&quot;font-family: arial;&quot;&gt; -&amp;nbsp;&amp;nbsp;{!$Record.Events_Managers__r.Name}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-family: arial;&quot;&gt;Event Manager Phone Number&lt;/strong&gt;&lt;span style=&quot;font-family: arial;&quot;&gt; -&amp;nbsp;{!$Record.Events_Managers__r.Phone_Number__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-family: arial;&quot;&gt;Event Manager Email&lt;/strong&gt;&lt;span style=&quot;font-family: arial;&quot;&gt; -&amp;nbsp;{!$Record.Events_Managers__r.Email__c}&lt;/span&gt;&lt;/p&gt;</text>
+        <text>&lt;p&gt;&lt;strong&gt;Dear&amp;nbsp;{!$Record.Name},&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-family: Calibri, sans-serif; font-size: 11pt;&quot;&gt;We hope this message finds you well. We would like to inform you that the details of the event you are managing have been updated. Please find the revised event details below for your reference:&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-family: Calibri, sans-serif; font-size: 14px;&quot;&gt; &lt;/span&gt;&lt;strong style=&quot;font-size: 14px;&quot;&gt;&lt;u&gt;Updated Event Details-&lt;/u&gt;&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;strong style=&quot;font-family: arial;&quot;&gt;Event Name&lt;/strong&gt;&lt;span style=&quot;font-family: arial;&quot;&gt; -{!$Record.Event_Details__r.Name}&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;strong style=&quot;font-family: arial;&quot;&gt;Event Start Date &lt;/strong&gt;&lt;span style=&quot;font-family: arial;&quot;&gt;-&amp;nbsp;{!$Record.Event_Start_Date__c}&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;strong style=&quot;font-family: arial;&quot;&gt;Event End Date&lt;/strong&gt;&lt;span style=&quot;font-family: arial;&quot;&gt; -&amp;nbsp;&amp;nbsp;{!$Record.Event_End_Date__c}&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;strong style=&quot;font-size: 14px;&quot;&gt;&lt;u&gt;Event Manager Information-&lt;/u&gt;&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;strong style=&quot;font-family: arial;&quot;&gt;Event Manager&lt;/strong&gt;&lt;span style=&quot;font-family: arial;&quot;&gt; -&amp;nbsp;&amp;nbsp;{!$Record.Events_Managers__r.Name}&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;strong style=&quot;font-family: arial;&quot;&gt;Event Manager Phone Number&lt;/strong&gt;&lt;span style=&quot;font-family: arial;&quot;&gt; -&amp;nbsp;{!$Record.Events_Managers__r.Phone_Number__c}&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;strong style=&quot;font-family: arial;&quot;&gt;Event Manager Email&lt;/strong&gt;&lt;span style=&quot;font-family: arial;&quot;&gt; -&amp;nbsp;{!$Record.Events_Managers__r.Email__c}&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;We kindly request you to review the updated event details and connect with the event manager for further coordination if needed. Your continued efforts and attention to these updates are greatly appreciated and essential for the event’s success.&lt;/p&gt;&lt;p&gt; If you have any questions or require further assistance, please do not hesitate to reach out to the Event Management Team.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt; &lt;strong&gt;Warm Regards,&lt;/strong&gt;&lt;/p&gt;&lt;p&gt; &lt;strong&gt;Event Management Team&lt;/strong&gt;&lt;/p&gt;</text>
     </textTemplates>
     <variables>
         <name>IsFlowExecuted</name>
@@ -558,4 +625,14 @@ REGEX( {!$Record.Contact_Information__c}, &quot;^(10|11|16|17|18|19)[0-9]{8}$&qu
             <booleanValue>false</booleanValue>
         </value>
     </variables>
+
+    <variables>
+        <name>RecordId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+
+
 </Flow>
