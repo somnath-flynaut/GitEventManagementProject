@@ -150,6 +150,11 @@
                 <default>false</default>
                 <label>Private Party</label>
             </value>
+            <value>
+                <fullName>Educational Workshop</fullName>
+                <default>false</default>
+                <label>Educational Workshop</label>
+            </value>
         </valueSetDefinition>
     </valueSet>
 </CustomField>

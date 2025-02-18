@@ -22,7 +22,7 @@
             </value>
             <value>
                 <fullName>Unpaid</fullName>
-                <default>false</default>
+                <default>true</default>
                 <label>Unpaid</label>
             </value>
         </valueSetDefinition>
