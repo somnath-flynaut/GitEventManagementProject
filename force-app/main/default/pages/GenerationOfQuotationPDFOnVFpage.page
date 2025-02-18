@@ -1,0 +1,136 @@
+<apex:page standardController="Quote__c" renderAs="pdf" contenttype="application/pdf" showHeader="false">
+    <html>
+        <body>
+            <div style="text-align: center; margin-bottom: 20px; background-color: #3ab3eb;color: white; padding: 10px;">
+                <h1 style="margin: 0;">Quotation</h1>
+            </div>
+            <h1 style="font-size:25px; color:#3ab3eb; margin:0; font-family: 'Comic Sans MS', sans-serif;padding: 20px; letter-spacing: 1px;text-align: Left" >
+                Flynaut Events Planner
+            </h1><br/>
+            
+            <!-- Company Information and Quote Details Section (Flex container) -->
+            <!-- Company Information and Quote Details Section (Flex container) -->
+            <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
+                <tr>
+                    <!-- Company Information -->
+                    <td style="width: 48%; padding: 20px; vertical-align: top;">
+                        <div style="font-size:17px">
+                            Sr.No 22/2, One Mall, BRT Link Rd, Ravet <br/>
+                            Phone - +91 808-731-1091<br/>
+                            Email - business@flynautsaas.com<br/>
+                            Website - http://flynautsaas.com/
+                        </div>
+                    </td>
+                    <!-- Quote Details -->
+                    <td style="width: 40%; padding: 20px; vertical-align: top;">
+                        <div style="font-size:17px">
+                            Date- {!TEXT(Quote__c.Created_Date__c)}<br/> 
+                            Quote NO- {!Quote__c.Quote_Number__c}<br/>
+                            Expiry Date- {!TEXT(Quote__c.Expiration_Date__c)}
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <!-- Billed to and Ship to Section (Table) -->
+            <table style="font-size:15px;width: 100%; border-collapse:collapse; ">
+                <tr>
+                    <!-- Billed to -->
+                    <td style="font-size:15px;width: 45%; padding: 10px; vertical-align: top;">
+                        <h3 style="background-color: #3ab3eb;color: white ;     padding: 5px 5px; border-radius: 5px;" >Billed to </h3>
+                        <p>
+                            {!Quote__c.Account__r.Name}<br/>
+                            {!Quote__c.Account__r.BillingStreet}<br/>
+                            {!Quote__c.Account__r.BillingCity}, {!Quote__c.Account__r.BillingState}<br/>
+                            {!Quote__c.Account__r.BillingPostalCode}<br/>
+                            {!Quote__c.Account__r.BillingCountry}<br/>
+                            {!Quote__c.Account__r.Phone}<br/>
+                        </p>
+                    </td>
+                    <td style="width: 10%; background-color: white;"></td>
+                    <!-- Ship to --> 
+                    <td style="width: 45%; padding: 10px; vertical-align: top;">
+                        <h3 style="background-color: #3ab3eb;color: white; padding: 5px 5px; border-radius: 5px;">Ship to</h3>
+                        
+                        <p>
+                            {!Quote__c.Account__r.Name}<br/>
+                            {!Quote__c.Account__r.ShippingStreet}<br/>
+                            {!Quote__c.Account__r.ShippingCity}, {!Quote__c.Account__r.ShippingState}<br/>
+                            {!Quote__c.Account__r.ShippingPostalCode}<br/>
+                            {!Quote__c.Account__r.ShippingCountry}<br/>
+                            {!Quote__c.Account__r.Phone}<br/>
+                        </p>
+                        
+                    </td>
+                </tr>
+            </table>
+            
+            
+            <!-- Items and Costs Section -->
+            <table style="width: 100%;   font-family: Arial, sans-serif; ">
+                <tr style ="background-color: #3ab3eb;font-size: 18px;color: white ;    ">
+                    <th style="padding: 10px;width: 80%; text-align: left;">Description</th>
+                    <th style="padding: 10px;width: 20%; text-align: right;">Amount</th>
+                    
+                </tr>    
+                <tbody>
+                    <tr>
+                        <td style="padding: 10px;background-color: #ffffff;font-size: 13spx; ">F AND B Cost</td>
+                        <td style="padding: 10px;background-color: #ffffff;font-size: 13spx;text-align: right; ">{!Quote__c.Event_Budget__r.FB_Cost__c}</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px;background-color: #f4eafc;font-size: 13spx;">Hospitality AND Venue Cost</td>
+                        <td style="padding: 10px;background-color: #f4eafc;font-size: 13spx;text-align: right; ">{!Quote__c.Event_Budget__r.Hospitality_and_Venue_Cost__c}</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px;background-color: #ffffff;font-size: 13spx;">Logistic Cost</td>
+                        <td style="padding: 10px;background-color: #ffffff;font-size: 13spx;text-align: right; ">{!Quote__c.Event_Budget__r.logistics_Cost__c}</td>
+                    </tr>
+                    <tr> 
+                        <td style="padding: 10px;background-color: #f4eafc;font-size: 13spx;">Miscellaneous Cost</td>
+                        <td style="padding: 10px;background-color: #f4eafc;font-size: 13spx;text-align: right; ">{!Quote__c.Event_Budget__r.Miscelaneous_Cost__c}</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <!-- Special Notes -->
+            
+            <table style="font-size:15px;width: 100%; border-collapse:collapse; ">
+                <tr>
+                    
+                    <td style="font-size:15px;width: 55%; padding: 10px; vertical-align: top;">
+                        <h3 style="background-color: #3ab3eb;color: white ; padding: 5px 5px; border-radius: 5px;" >Special notes and instructions  </h3>
+                        <div style="background-color: #eeeeed;">
+                            1. Deposit amount and payment method requirements here <br/>
+                            2. Make all cheques payable to my company name<br/>
+                            3. Warranty terms here
+                        </div>
+                    </td>
+                    <td style="width: 10%; background-color: white;"></td>
+                    
+                    <td style="font-size:17spx;"> SUBTOTAL<br/>
+                        DISCOUNT<br/>
+                        TAX<br/>
+                        TOTAL QUOTE<br/>
+                    </td>    
+                    <td style="text-align: right;padding: 10px;font-size:18px">
+                        {!Quote__c.Grand_Total__c}<br/>  <!-- SUBTOTAL -->
+                        {!Quote__c.Discount__c}<br/>   <!-- Discount -->
+                        {!Quote__c.Tax__c}<br/>   <!-- Tax -->
+                        {!Quote__c.Total_Price__c}<!-- Total Price -->
+                    </td>
+                    
+                </tr>
+            </table>
+            <!-- Footer -->
+            <h1 style=" text-align: center;font-size: 18px; margin-top: 20px; color: #555;">
+                Thank you for your business!
+            </h1>
+            <p style=" text-align: center;font-size: 16px; margin-top: 20px; color: #555;">
+                Should you have any inquiries concerning this quotation, please contact us.
+            </p>
+            
+            
+        </body>
+        
+    </html>
+</apex:page>
