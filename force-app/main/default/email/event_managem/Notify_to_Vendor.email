@@ -1,0 +1,7 @@
+Hello {!Vendor__c.Name},
+
+Your agreement is set to expire on{!Vendor__c.Agreement_Expiration_Date__c}. 
+Please re-sign your agreement to ensure uninterrupted service.
+
+Best regards,
+[Your Company Name]

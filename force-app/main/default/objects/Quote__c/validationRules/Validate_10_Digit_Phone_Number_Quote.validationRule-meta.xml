@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Validate_10_Digit_Phone_Number_Quote</fullName>
+    <active>true</active>
+    <description>Contact phone number must pass a 10-digit validation. If the user attempts to enter a phone number with 11 digits or 9 digits, an error message will be displayed on the field stating: &quot;Please enter a valid 10-digit mobile number.&quot;
+With Country Code: +91</description>
+    <errorConditionFormula>OR(
+NOT(BEGINS(  Phone__c  , &quot;+91 &quot;)),
+NOT(REGEX( Phone__c  , &quot;\\+91\\s[6-9]\\d{9}&quot;)),
+LEN(SUBSTITUTE( Phone__c  , &quot; &quot;, &quot;&quot;)) &lt;&gt; 13
+)</errorConditionFormula>
+    <errorDisplayField>Phone__c</errorDisplayField>
+    <errorMessage>Please enter a valid 10-digit mobile number.&quot;
+With Country Code: +91 9876543210 (For only India)</errorMessage>
+</ValidationRule>

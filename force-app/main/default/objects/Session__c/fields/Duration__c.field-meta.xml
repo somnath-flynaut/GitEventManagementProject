@@ -2,14 +2,13 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Duration__c</fullName>
     <externalId>false</externalId>
-    <formula>End_Time__c  -  Start_Time__c</formula>
+    <formula>TEXT(FLOOR((End_Time__c - Start_Time__c))) &amp; &quot; days, &quot; &amp;
+TEXT(FLOOR(MOD((End_Time__c - Start_Time__c) * 24, 24))) &amp; &quot; hours&quot;</formula>
     <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
     <label>Duration</label>
-    <precision>18</precision>
     <required>false</required>
-    <scale>2</scale>
     <trackHistory>false</trackHistory>
     <trackTrending>false</trackTrending>
-    <type>Number</type>
+    <type>Text</type>
     <unique>false</unique>
 </CustomField>

@@ -12,10 +12,12 @@
 &amp; BR() &amp;  
 &quot;Specific Aspects: &quot; &amp; IF(ISBLANK({!$Record.Specific_Aspects__c}), &quot;None provided&quot;, {!$Record.Specific_Aspects__c}) 
 &amp; BR() &amp; 
-&quot;Comments: &quot; &amp; IF(ISBLANK({!$Record.Comments__c}), &quot;None provided&quot;, {!$Record.Comments__c})</expression>
+&quot;Comments: &quot; &amp; IF(ISBLANK({!$Record.Comments__c}), &quot;None provided&quot;, {!$Record.Comments__c})
+&amp; BR() &amp; 
+&quot;Comments: &quot; &amp; IF(ISBLANK({!$Record.Suggestions__c}), &quot;None provided&quot;, {!$Record.Suggestions__c})</expression>
     </formulas>
     <interviewLabel>Creating Lead from Feedback {!$Flow.CurrentDateTime}</interviewLabel>
-    <label>Creating Lead from Feedback</label>
+    <label>Feedback Flow</label>
     <processMetadataValues>
         <name>BuilderType</name>
         <value>
