@@ -17,7 +17,11 @@
         <inputParameters>
             <name>emailSubject</name>
             <value>
+<<<<<<< HEAD
+                <stringValue>Event Details of {!$Record.Name}</stringValue>
+=======
                 <stringValue>Event Details and Assigned Team Members</stringValue>
+>>>>>>> 3532b3b73cba41ebdfce47231d71f0f75c73746e
             </value>
         </inputParameters>
         <inputParameters>
@@ -34,9 +38,15 @@
         </inputParameters>
         <nameSegment>emailSimple</nameSegment>
         <offset>0</offset>
+<<<<<<< HEAD
+    </actionCalls>
+    <apiVersion>62.0</apiVersion>
+    <description>Updated Email body and subject</description>
+=======
         <versionSegment>1</versionSegment>
     </actionCalls>
     <apiVersion>62.0</apiVersion>
+>>>>>>> 3532b3b73cba41ebdfce47231d71f0f75c73746e
     <environments>Default</environments>
     <interviewLabel>Event Manager Notification with Assigned Team Members Record Trigger Flow {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Event Manager Notification with Assigned Team Members Record Trigger Flow</label>
@@ -84,8 +94,13 @@
     <recordLookups>
         <name>Get_Event_Team_Member_Records</name>
         <label>Get Event Team Member Records</label>
+<<<<<<< HEAD
+        <locationX>815</locationX>
+        <locationY>286</locationY>
+=======
         <locationX>820</locationX>
         <locationY>323</locationY>
+>>>>>>> 3532b3b73cba41ebdfce47231d71f0f75c73746e
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <filterLogic>and</filterLogic>
         <filters>
@@ -132,7 +147,11 @@
     <textTemplates>
         <name>EmailBody</name>
         <isViewedAsPlainText>false</isViewedAsPlainText>
+<<<<<<< HEAD
+        <text>&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, &amp;quot;Noto Sans&amp;quot;, Helvetica, Arial, sans-serif, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;; font-size: 16px; background-color: rgb(255, 255, 255);&quot;&gt;Dear &lt;/span&gt;&lt;strong style=&quot;color: rgb(0, 0, 0); font-size: 14px;&quot;&gt;&lt;u&gt;{!$Record.Events_Managers__r.Name},&lt;/u&gt;&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: sans-serif; font-size: 14px; background-color: rgb(255, 255, 255);&quot;&gt;Here are the details for the upcoming event you are managing...&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;color: rgb(0, 0, 0);&quot;&gt;Event Name: &lt;/strong&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;{!$Record.Name}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);&quot;&gt;Event Status: &lt;/strong&gt;&lt;span style=&quot;color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);&quot;&gt;{!$Record.Event_Status__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);&quot;&gt;Event &lt;/strong&gt;&lt;strong style=&quot;color: rgb(0, 0, 0);&quot;&gt;Start Date &amp;amp; Time: &lt;/strong&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;{!$Record.Event_Date_Time__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);&quot;&gt;Event  &lt;/strong&gt;&lt;strong style=&quot;color: rgb(0, 0, 0);&quot;&gt;End Date &lt;/strong&gt;&lt;strong style=&quot;color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);&quot;&gt;&amp;amp; Time: &lt;/strong&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;{!$Record.End_Date_Time__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);&quot;&gt;Event &lt;/strong&gt;&lt;strong style=&quot;color: rgb(0, 0, 0);&quot;&gt;Venue:&lt;/strong&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt; {!$Record.Venues__r.Name}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); font-size: 14px; font-family: tahoma; color: rgb(0, 0, 0);&quot;&gt;Please coordinate with your team members to ensure smooth event execution.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;background-color: rgb(255, 255, 255); font-size: 14px; font-family: tahoma; color: rgb(0, 0, 0);&quot;&gt;Best regards,&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-size: 14px; color: rgb(0, 0, 0);&quot;&gt;Your Event Management Team&lt;/strong&gt;&lt;/p&gt;</text>
+=======
         <text>&lt;p&gt;&lt;span style=&quot;color: rgb(31, 35, 40); font-family: -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, &amp;quot;Noto Sans&amp;quot;, Helvetica, Arial, sans-serif, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;; font-size: 16px; background-color: rgb(255, 255, 255);&quot;&gt;Dear,&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;color: rgb(0, 0, 0); font-size: 18px;&quot;&gt;&lt;u&gt;{!$Record.Events_Managers__r.Name}&lt;/u&gt;&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(18, 234, 45); font-family: sans-serif; font-size: 14px; background-color: rgb(255, 255, 255);&quot;&gt;Here are the details for the upcoming event you are managing...&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Event Name:&lt;/strong&gt;  {!$Record.Name}&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;color: rgb(68, 68, 68); background-color: rgb(255, 255, 255);&quot;&gt;Event Status: &lt;/strong&gt;&lt;span style=&quot;color: rgb(68, 68, 68); background-color: rgb(255, 255, 255);&quot;&gt;  {!$Record.Event_Status__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;color: rgb(68, 68, 68); background-color: rgb(255, 255, 255);&quot;&gt;Event &lt;/strong&gt;&lt;strong&gt;Start Date &amp;amp; Time:&lt;/strong&gt; {!$Record.Event_Date_Time__c}&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;color: rgb(68, 68, 68); background-color: rgb(255, 255, 255);&quot;&gt;Event  &lt;/strong&gt;&lt;strong&gt;End Date &lt;/strong&gt;&lt;strong style=&quot;color: rgb(68, 68, 68); background-color: rgb(255, 255, 255);&quot;&gt;&amp;amp; Time:&lt;/strong&gt; {!$Record.End_Date_Time__c}&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;color: rgb(68, 68, 68); background-color: rgb(255, 255, 255);&quot;&gt;Event &lt;/strong&gt;&lt;strong&gt;Venue:&lt;/strong&gt; {!$Record.Venues__r.Name}&lt;/p&gt;&lt;p&gt;&lt;em style=&quot;background-color: rgb(255, 255, 255); font-size: 14px; font-family: tahoma; color: rgb(31, 35, 40);&quot;&gt;Please coordinate with your team members to ensure smooth event execution.&lt;/em&gt;&lt;/p&gt;&lt;p&gt;&lt;em style=&quot;background-color: rgb(255, 255, 255); font-size: 14px; font-family: tahoma; color: rgb(31, 35, 40);&quot;&gt;Best regards,&lt;/em&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;color: rgb(241, 14, 14); font-size: 16px;&quot;&gt;Thank you,&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;color: rgb(0, 0, 0);&quot;&gt;Your Event Management Team&lt;/strong&gt;&lt;/p&gt;</text>
+>>>>>>> 3532b3b73cba41ebdfce47231d71f0f75c73746e
     </textTemplates>
     <textTemplates>
         <name>EventTeamMemberEmail</name>
