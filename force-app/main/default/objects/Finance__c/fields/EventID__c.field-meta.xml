@@ -2,7 +2,7 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>EventID__c</fullName>
     <deleteConstraint>SetNull</deleteConstraint>
-    <label>Event ID</label>
+    <label>Event Name</label>
     <referenceTo>Event_Details__c</referenceTo>
     <relationshipLabel>Finances</relationshipLabel>
     <relationshipName>Finances</relationshipName>

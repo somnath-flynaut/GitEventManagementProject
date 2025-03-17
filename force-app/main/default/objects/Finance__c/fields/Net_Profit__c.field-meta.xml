@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Net_Profit__c</fullName>
-    <formula>Total_Amount_to_Pay__c -  Total_Expenses__c</formula>
+    <formula>Total_Expenses__c * Profit_Percent__c</formula>
     <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
     <label>Net Profit</label>
     <precision>18</precision>

@@ -150,6 +150,53 @@
                 <default>false</default>
                 <label>Private Party</label>
             </value>
+            <value>
+                <fullName>Educational Workshop</fullName>
+                <default>false</default>
+                <label>Educational Workshop</label>
+            </value>
+            <value>
+                <fullName>Charity Event</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Charity Event</label>
+            </value>
+            <value>
+                <fullName>Corporate Event</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Corporate Event</label>
+            </value>
+            <value>
+                <fullName>Cultural Event</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Cultural Event</label>
+            </value>
+            <value>
+                <fullName>Educational Event</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Educational Event</label>
+            </value>
+            <value>
+                <fullName>Entertainment Event</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Entertainment Event</label>
+            </value>
+            <value>
+                <fullName>Private Event</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Private Event</label>
+            </value>
+            <value>
+                <fullName>Social Event</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Social Event</label>
+            </value>
         </valueSetDefinition>
         <valueSettings>
             <controllingFieldValue>Corporate Event</controllingFieldValue>
@@ -161,7 +208,6 @@
         </valueSettings>
         <valueSettings>
             <controllingFieldValue>Corporate Event</controllingFieldValue>
-            <controllingFieldValue>Educational Event</controllingFieldValue>
             <valueName>Workshop</valueName>
         </valueSettings>
         <valueSettings>
@@ -187,6 +233,10 @@
         <valueSettings>
             <controllingFieldValue>Educational Event</controllingFieldValue>
             <valueName>Lecture</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Educational Event</controllingFieldValue>
+            <valueName>Educational Workshop</valueName>
         </valueSettings>
         <valueSettings>
             <controllingFieldValue>Entertainment Event</controllingFieldValue>
