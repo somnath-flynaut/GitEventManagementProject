@@ -34,6 +34,7 @@
                 <fullName>Trade Show</fullName>
                 <default>false</default>
                 <label>Trade Show</label>
+
             </value>
             <value>
                 <fullName>Business Meeting</fullName>
@@ -156,8 +157,120 @@
                 <label>Educational Workshop</label>
             </value>
             <value>
-                <fullName>Charity Event</fullName>
+                <fullName>Business Meeting</fullName>
                 <default>false</default>
+                <label>Business Meeting</label>
+            </value>
+            <value>
+                <fullName>Training</fullName>
+                <default>false</default>
+                <label>Training</label>
+            </value>
+            <value>
+                <fullName>Webinar</fullName>
+                <default>false</default>
+                <label>Webinar</label>
+            </value>
+            <value>
+                <fullName>Lecture</fullName>
+                <default>false</default>
+                <label>Lecture</label>
+            </value>
+            <value>
+                <fullName>Concert</fullName>
+                <default>false</default>
+                <label>Concert</label>
+            </value>
+            <value>
+                <fullName>Comedy Show</fullName>
+                <default>false</default>
+                <label>Comedy Show</label>
+            </value>
+            <value>
+                <fullName>Movie Screening</fullName>
+                <default>false</default>
+                <label>Movie Screening</label>
+            </value>
+            <value>
+                <fullName>Theater Play</fullName>
+                <default>false</default>
+                <label>Theater Play</label>
+            </value>
+            <value>
+                <fullName>Wedding</fullName>
+                <default>false</default>
+                <label>Wedding</label>
+            </value>
+            <value>
+                <fullName>Birthday Party</fullName>
+                <default>false</default>
+                <label>Birthday Party</label>
+            </value>
+            <value>
+                <fullName>Anniversary Celebration</fullName>
+                <default>false</default>
+                <label>Anniversary Celebration</label>
+            </value>
+            <value>
+                <fullName>Reunion</fullName>
+                <default>false</default>
+                <label>Reunion</label>
+            </value>
+            <value>
+                <fullName>Festival</fullName>
+                <default>false</default>
+                <label>Festival</label>
+            </value>
+            <value>
+                <fullName>Art Exhibition</fullName>
+                <default>false</default>
+                <label>Art Exhibition</label>
+            </value>
+            <value>
+                <fullName>Cultural Fair</fullName>
+                <default>false</default>
+                <label>Cultural Fair</label>
+            </value>
+            <value>
+                <fullName>Heritage Event</fullName>
+                <default>false</default>
+                <label>Heritage Event</label>
+            </value>
+            <value>
+                <fullName>Fundraiser</fullName>
+                <default>false</default>
+                <label>Fundraiser</label>
+            </value>
+            <value>
+                <fullName>Charity Ball</fullName>
+                <default>false</default>
+                <label>Charity Ball</label>
+            </value>
+            <value>
+                <fullName>Auction</fullName>
+                <default>false</default>
+                <label>Auction</label>
+            </value>
+            <value>
+                <fullName>Charity Walk/Run</fullName>
+                <default>false</default>
+                <label>Charity Walk/Run</label>
+            </value>
+            <value>
+                <fullName>VIP Gathering</fullName>
+                <default>false</default>
+                <label>VIP Gathering</label>
+            </value>
+            <value>
+                <fullName>Private Dinner</fullName>
+                <default>false</default>
+                <label>Private Dinner</label>
+            </value>
+            <value>
+                <fullName>Private Party</fullName>
+                <default>false</default>
+                <label>Private Party</label>
+
                 <isActive>false</isActive>
                 <label>Charity Event</label>
             </value>
@@ -208,6 +321,7 @@
         </valueSettings>
         <valueSettings>
             <controllingFieldValue>Corporate Event</controllingFieldValue>
+            <controllingFieldValue>Educational Event</controllingFieldValue>
             <valueName>Workshop</valueName>
         </valueSettings>
         <valueSettings>
