@@ -7,6 +7,7 @@
     <trackTrending>false</trackTrending>
     <type>Picklist</type>
     <valueSet>
+        <controllingField>Event_Categories__c</controllingField>
         <restricted>true</restricted>
         <valueSetDefinition>
             <sorted>false</sorted>
@@ -151,5 +152,127 @@
                 <label>Private Party</label>
             </value>
         </valueSetDefinition>
+            <value>
+                <fullName>Educational Workshop</fullName>
+                <default>false</default>
+                <label>Educational Workshop</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Corporate Event</controllingFieldValue>
+            <valueName>Conference</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Corporate Event</controllingFieldValue>
+            <valueName>Seminar</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Corporate Event</controllingFieldValue>
+            <valueName>Workshop</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Corporate Event</controllingFieldValue>
+            <valueName>Product Launch</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Corporate Event</controllingFieldValue>
+            <valueName>Trade Show</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Corporate Event</controllingFieldValue>
+            <valueName>Business Meeting</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Educational Event</controllingFieldValue>
+            <valueName>Training</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Educational Event</controllingFieldValue>
+            <valueName>Webinar</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Educational Event</controllingFieldValue>
+            <valueName>Lecture</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Educational Event</controllingFieldValue>
+            <valueName>Educational Workshop</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Entertainment Event</controllingFieldValue>
+            <valueName>Concert</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Entertainment Event</controllingFieldValue>
+            <valueName>Comedy Show</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Entertainment Event</controllingFieldValue>
+            <valueName>Movie Screening</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Entertainment Event</controllingFieldValue>
+            <valueName>Theater Play</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Social Event</controllingFieldValue>
+            <valueName>Wedding</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Social Event</controllingFieldValue>
+            <valueName>Birthday Party</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Social Event</controllingFieldValue>
+            <valueName>Anniversary Celebration</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Social Event</controllingFieldValue>
+            <valueName>Reunion</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Cultural Event</controllingFieldValue>
+            <valueName>Festival</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Cultural Event</controllingFieldValue>
+            <valueName>Art Exhibition</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Cultural Event</controllingFieldValue>
+            <valueName>Cultural Fair</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Cultural Event</controllingFieldValue>
+            <valueName>Heritage Event</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Charity Event</controllingFieldValue>
+            <valueName>Fundraiser</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Charity Event</controllingFieldValue>
+            <valueName>Charity Ball</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Charity Event</controllingFieldValue>
+            <valueName>Auction</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Charity Event</controllingFieldValue>
+            <valueName>Charity Walk/Run</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Private Event</controllingFieldValue>
+            <valueName>VIP Gathering</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Private Event</controllingFieldValue>
+            <valueName>Private Dinner</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Private Event</controllingFieldValue>
+            <valueName>Private Party</valueName>
+        </valueSettings>
     </valueSet>
 </CustomField>

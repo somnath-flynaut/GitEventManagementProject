@@ -7,6 +7,7 @@
     <trackTrending>false</trackTrending>
     <type>Picklist</type>
     <valueSet>
+        <controllingField>Event_Type__c</controllingField>
         <restricted>true</restricted>
         <valueSetDefinition>
             <sorted>false</sorted>
@@ -46,5 +47,33 @@
                 <label>Private Event</label>
             </value>
         </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Virtual</controllingFieldValue>
+            <valueName>Corporate Event</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Virtual</controllingFieldValue>
+            <valueName>Educational Event</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Virtual</controllingFieldValue>
+            <valueName>Entertainment Event</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Non-Virtual</controllingFieldValue>
+            <valueName>Social Event</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Non-Virtual</controllingFieldValue>
+            <valueName>Cultural Event</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Non-Virtual</controllingFieldValue>
+            <valueName>Charity Event</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Non-Virtual</controllingFieldValue>
+            <valueName>Private Event</valueName>
+        </valueSettings>
     </valueSet>
 </CustomField>

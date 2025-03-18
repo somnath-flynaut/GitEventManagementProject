@@ -22,9 +22,9 @@
                 <label>Seminar</label>
             </value>
             <value>
-                <fullName>Corporate Workshop</fullName>
+                <fullName>Workshop</fullName>
                 <default>false</default>
-                <label>Corporate Workshop</label>
+                <label>Workshop</label>
             </value>
             <value>
                 <fullName>Product Launch</fullName>
@@ -156,6 +156,12 @@
                 <default>false</default>
                 <label>Private Party</label>
             </value>
+            <value>
+                <fullName>Corporate Workshop</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Corporate Workshop</label>
+            </value>
         </valueSetDefinition>
         <valueSettings>
             <controllingFieldValue>Corporate Event</controllingFieldValue>
@@ -167,7 +173,7 @@
         </valueSettings>
         <valueSettings>
             <controllingFieldValue>Corporate Event</controllingFieldValue>
-            <valueName>Corporate Workshop</valueName>
+            <valueName>Workshop</valueName>
         </valueSettings>
         <valueSettings>
             <controllingFieldValue>Corporate Event</controllingFieldValue>
