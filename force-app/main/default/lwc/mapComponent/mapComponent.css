@@ -1,0 +1,5 @@
+.map-container {
+    max-width: 900px; /* Adjust width as needed */
+    height: 500px; /* Adjust height as needed */
+    margin: auto; /* Center the component */
+}

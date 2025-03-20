@@ -1,0 +1,60 @@
+<template>
+    <lightning-card title="Event Registration" icon-name="action:new_event">
+        <div class="slds-p-horizontal_medium">
+            
+            <!-- Show Loading Spinner -->
+            <template if:true={isLoading}>
+                <lightning-spinner alternative-text="Loading..." size="large"></lightning-spinner>
+            </template>
+
+            <template if:false={isLoading}>
+                <p><b>Event:</b> {eventName}</p>
+
+                <!-- Edit Form -->
+                <lightning-record-edit-form object-api-name="Registration__c" onsuccess={handleSuccess}>
+                    
+                    <!-- Attendee Details -->
+                    <lightning-input-field field-name="Attendee_Name__c"></lightning-input-field>
+                    <lightning-input-field field-name="Attendee_Phone__c"></lightning-input-field>
+                    <lightning-input-field field-name="Attendee_Email__c"></lightning-input-field>
+
+                    <!-- Event (Prefilled & Disabled) -->
+                    <lightning-input-field field-name="Event_Details__c" value={eventId} disabled></lightning-input-field>
+
+                    <!-- Ticket Details -->
+                    <lightning-input-field field-name="Ticket_Type__c"></lightning-input-field>
+                    <lightning-input-field field-name="Ticket_Price__c"></lightning-input-field>
+
+                    <!-- Buttons -->
+                    <div class="slds-m-top_medium">
+                        <lightning-button variant="brand" label="Proceed to Pay" onclick={handleProceedToPay}></lightning-button>
+                        <lightning-button variant="success" type="submit" label="Finish" class="slds-m-left_small"></lightning-button>
+                    </div>
+                </lightning-record-edit-form>
+            </template>
+        </div>
+    </lightning-card>
+
+    <!-- Payment Modal -->
+    <template if:true={showPaymentModal}>
+        <section role="dialog" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header">
+                    <h2 class="slds-text-heading_medium">Payment Gateway</h2>
+                    <lightning-button-icon icon-name="utility:close" alternative-text="Close"
+                        class="slds-modal__close" title="Close" onclick={closePaymentModal}>
+                    </lightning-button-icon>
+                </header>
+
+                <!-- <div class="slds-modal__content slds-p-around_medium">
+                    <c-payment-gateway></c-payment-gateway>
+                </div> -->
+
+                <footer class="slds-modal__footer">
+                    <lightning-button variant="neutral" label="Close" onclick={closePaymentModal}></lightning-button>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+</template>
