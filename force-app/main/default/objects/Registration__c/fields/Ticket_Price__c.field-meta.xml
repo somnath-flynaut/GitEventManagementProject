@@ -2,11 +2,11 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Ticket_price__c</fullName>
     <formula>CASE(
-  Ticket_Type__c,
-  &quot;General&quot;, Event_Details__r.Event_Ticket_Price__c * Number_of_Tickets__c,
-  &quot;VIP&quot;, (Event_Details__r.Event_Ticket_Price__c * 1.5) * Number_of_Tickets__c,
-  &quot;Student&quot;, (Event_Details__r.Event_Ticket_Price__c * 0.85) * Number_of_Tickets__c,
-  0
+Ticket_Type__c,
+&quot;General&quot;, Event_Details__r.Event_Ticket_Price__c * Number_of_Tickets__c,
+&quot;VIP&quot;, (Event_Details__r.Event_Ticket_Price__c * 1.5) * Number_of_Tickets__c,
+&quot;Student&quot;, (Event_Details__r.Event_Ticket_Price__c * 0.85) * Number_of_Tickets__c,
+0
 )</formula>
     <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
     <label>Ticket price</label>
