@@ -1,0 +1,16 @@
+<template>
+    <div class="hero-container" onmouseover={pauseAutoSlide} onmouseout={resumeAutoSlide}>
+        <div class="carousel" lwc:ref="carousel">
+            <template for:each={images} for:item="img">
+                <div key={img.id} class="carousel-item">
+                    <img src={img.url} alt={img.altText} class="zoom-image"/>
+                    <div class="overlay">
+                        <h1 class="hero-title">{mainMessage}</h1>
+                        <p class="hero-subtitle">{subMessage}</p>
+                        <a href="https://flynautsaasprivatelimited8-dev-ed.develop.my.site.com/Flynaut/s/contactsupport" class="contact-button">Contact Us</a>
+                    </div>
+                </div>
+            </template>
+        </div>
+    </div>
+</template>

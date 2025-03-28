@@ -4,6 +4,15 @@
     <deleteConstraint>SetNull</deleteConstraint>
     <description>The Contact the quote is associated with.</description>
     <label>Contact Name</label>
+    <lookupFilter>
+        <active>true</active>
+        <filterItems>
+            <field>$Source.Account__c</field>
+            <operation>equals</operation>
+            <valueField>Contact.Account.Id</valueField>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
     <referenceTo>Contact</referenceTo>
     <relationshipLabel>Quotes</relationshipLabel>
     <relationshipName>Quotes</relationshipName>

@@ -156,6 +156,12 @@
                 <default>false</default>
                 <label>Private Party</label>
             </value>
+            <value>
+                <fullName>Corporate Workshop</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Corporate Workshop</label>
+            </value>
         </valueSetDefinition>
         <valueSettings>
             <controllingFieldValue>Corporate Event</controllingFieldValue>
