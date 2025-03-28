@@ -1,0 +1,25 @@
+<template>
+    <div class="event-detail-container">
+        <template if:true={event}>
+            <h1 class="event-title">{event.name}</h1>
+            <img src={event.imageUrl} alt="Event Image" class="event-image" />
+            <p class="event-info">Date: {event.date}</p>
+            <p class="event-info">Location: {event.location}</p>
+            <p class="event-info">Description: {event.description}</p>
+
+            <lightning-button 
+                label="Register" 
+                variant="brand"
+                onclick={handleRegister}>
+            </lightning-button>
+        </template>
+
+        <template if:false={event}>
+            <p class="no-event">Event not found.</p>
+        </template>
+    </div>
+     <!-- Show Registration Component Only When Needed -->
+     <template if:true={showRegistration}>
+        <c-event-registration-form event-id={event.id} event-name={event.name}></c-event-registration-form>
+    </template>
+</template>

@@ -1,0 +1,22 @@
+<template>
+    <div class="container">
+        <div class="grid-container">
+            <template for:each={grids} for:item="grid">
+                <div key={grid.id} class="grid-item">
+                    <template for:each={grid.images} for:item="image">
+                        <img key={image} src={image} class="grid-image" />
+                    </template>
+                </div>
+            </template>
+        </div>
+        <div class="text-content">
+            <h2>{textContent.title}</h2>
+            <p>{textContent.description}</p>
+            <p>{textContent.extraInfo}</p>
+            <div class="buttons">
+                <button class="btn talk-btn">Talk to Expert</button>
+                <button class="btn whatsapp-btn" onclick={handleWhatsAppClick}>Whatsapp us</button>
+            </div>
+        </div>
+    </div>
+</template>

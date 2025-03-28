@@ -1,0 +1,23 @@
+<template>
+    <div class="event-container">
+        <h1 class="heading">Past Events</h1>
+        <div class="event-grid">
+            <template if:true={pastEvents}>
+                <template for:each={pastEvents} for:item="event">
+                    <div key={event.id} class="event-card">
+                        <!-- Use <img> Tag Instead of Background Image -->
+                        <img src={event.imageUrl} alt="Event Image" class="event-image"/>
+                        <div class="event-details">
+                            <h3>Event Name: {event.name}</h3>
+                            <p>Date: {event.date}</p>
+                            <p>Location: {event.location}</p>
+                        </div>
+                    </div>
+                </template>
+            </template>
+            <template if:false={pastEvents}>
+                <p class="no-events">No past events found.</p>
+            </template>
+        </div>
+    </div>
+</template>

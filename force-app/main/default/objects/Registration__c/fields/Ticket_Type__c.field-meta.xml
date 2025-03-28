@@ -21,16 +21,6 @@
                 <label>VIP</label>
             </value>
             <value>
-                <fullName>Early Bird</fullName>
-                <default>false</default>
-                <label>Early Bird</label>
-            </value>
-            <value>
-                <fullName>Group</fullName>
-                <default>false</default>
-                <label>Group</label>
-            </value>
-            <value>
                 <fullName>Student</fullName>
                 <default>false</default>
                 <label>Student</label>

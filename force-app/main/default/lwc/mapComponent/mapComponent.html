@@ -1,0 +1,16 @@
+<template>
+    <lightning-card title="Location Map" icon-name="utility:location">
+        <div class="map-container">
+            <template if:true={mapMarkers}>
+                <lightning-map
+                    map-markers={mapMarkers}
+                    zoom-level="15"
+                    center={center}
+                ></lightning-map>
+            </template>
+            <template if:false={mapMarkers}>
+                <p class="slds-text-color_destructive">No location data available.</p>
+            </template>
+        </div>
+    </lightning-card>
+</template>

@@ -1,0 +1,126 @@
+<!-- <template>
+    <div class="event-categories-container hidden"> 
+        <lightning-card title="Event Categories" icon-name="custom:custom14">
+            <div class="event-categories">
+                <lightning-card title="Corporate Event" class="hover-card">
+                    <div class="category">
+                        <ul>
+                            <li data-category="Conference" onclick={handleCategoryClick}>Conference</li>
+                            <li data-category="Seminar" onclick={handleCategoryClick}>Seminar</li>
+                            <li data-category="Workshop" onclick={handleCategoryClick}>Workshop</li>
+                        </ul>
+                    </div>
+                </lightning-card>
+            </div>
+        </lightning-card>
+    </div>
+</template> -->
+<template>
+    <div class="event-categories-container hidden">
+    <lightning-card title="Event Categories" icon-name="custom:custom14" class="main-card">
+        <div class="event-categories">
+            <lightning-card title="Corporate Event" icon-name="standard:work_order" class="hover-card">
+                <div class="category">
+                    <ul>
+                        <li data-category="conference" onclick={handleCategoryClick}>
+                            <lightning-icon icon-name="utility:groups" size="xx-small"></lightning-icon> Conference
+                        </li>
+                        <li data-category="seminar" onclick={handleCategoryClick}>
+                            <lightning-icon icon-name="utility:education" size="xx-small"></lightning-icon> Seminar
+                        </li>
+                        <li data-category="workshop" onclick={handleCategoryClick}>
+                            <lightning-icon icon-name="utility:customer_workspace" size="xx-small"></lightning-icon> Workshop
+                        </li>
+                        <li data-category="product_launch" onclick={handleCategoryClick}>
+                            <lightning-icon icon-name="utility:announcement" size="xx-small"></lightning-icon> Product Launch
+                        </li>
+                        <li data-category="trade_show" onclick={handleCategoryClick}>
+                            <lightning-icon icon-name="utility:store" size="xx-small"></lightning-icon> Trade Show
+                        </li>
+                        <li data-category="business_meeting" onclick={handleCategoryClick}>
+                            <lightning-icon icon-name="utility:meet_focus_equal" size="xx-small"></lightning-icon> Business Meeting
+                        </li>
+                    </ul>
+                </div>
+                
+            </lightning-card>
+
+            <lightning-card title="Educational Event" icon-name="standard:education" class="hover-card">
+                <div class="category">
+                    <ul>
+                        <li data-category="training" onclick={handleCategoryClick}>
+                            <lightning-icon icon-name="utility:record" size="xx-small"></lightning-icon> Training
+                        </li>
+                        <li data-category="webinar" onclick={handleCategoryClick}>
+                            <lightning-icon icon-name="utility:video" size="xx-small"></lightning-icon> Webinar
+                        </li>
+                        <li data-category="lecture" onclick={handleCategoryClick}>
+                            <lightning-icon icon-name="utility:info" size="xx-small"></lightning-icon> Lecture
+                        </li>
+                        <li data-category="workshop" onclick={handleCategoryClick}>
+                            <lightning-icon icon-name="utility:promotions_workspace" size="xx-small"></lightning-icon> Workshop
+                        </li>
+                    </ul>
+                </div>
+            </lightning-card>
+
+            <lightning-card title="Entertainment Event" icon-name="standard:video" class="hover-card">
+                <div class="category">
+                    <ul>
+                        <li data-category="concert" onclick={handleCategoryClick}>
+                            <lightning-icon icon-name="utility:location" size="xx-small"></lightning-icon> Concert
+                        </li>
+                        <li data-category="comedy_show" onclick={handleCategoryClick}>
+                            <lightning-icon icon-name="utility:emoji" size="xx-small"></lightning-icon> Comedy Show
+                        </li>
+                        <li data-category="movie_screening" onclick={handleCategoryClick}>
+                            <lightning-icon icon-name="utility:video" size="xx-small"></lightning-icon> Movie Screening
+                        </li>
+                        <li data-category="theater_play" onclick={handleCategoryClick}>
+                            <lightning-icon icon-name="utility:play" size="xx-small"></lightning-icon> Theater Play
+                        </li>
+                    </ul>
+                </div>
+            </lightning-card>
+
+            <lightning-card title="Social Event" icon-name="standard:groups" class="hover-card">
+                <div class="category">
+                    <ul>
+                        <li data-category="wedding" onclick={handleCategoryClick}>
+                            <lightning-icon icon-name="utility:favorite" size="xx-small"></lightning-icon> Wedding
+                        </li>
+                        <li data-category="birthday_party" onclick={handleCategoryClick}>
+                            <lightning-icon icon-name="utility:sparkles" size="xx-small"></lightning-icon> Birthday Party
+                        </li>
+                        <li data-category="anniversary_celebration" onclick={handleCategoryClick}>
+                            <lightning-icon icon-name="utility:heart" size="xx-small"></lightning-icon> Anniversary Celebration
+                        </li>
+                        <li data-category="reunion" onclick={handleCategoryClick}>
+                            <lightning-icon icon-name="utility:people" size="xx-small"></lightning-icon> Reunion
+                        </li>
+                    </ul>
+                </div>
+            </lightning-card>
+
+            <lightning-card title="Cultural Event" icon-name="standard:sales_channel" class="hover-card">
+                <div class="category">
+                    <ul>
+                        <li data-category="festival" onclick={handleCategoryClick}>
+                            <lightning-icon icon-name="utility:brush" size="xx-small"></lightning-icon> Festival
+                        </li>
+                        <li data-category="art_exhibition" onclick={handleCategoryClick}>
+                            <lightning-icon icon-name="utility:palette" size="xx-small"></lightning-icon> Art Exhibition
+                        </li>
+                        <li data-category="cultural_fair" onclick={handleCategoryClick}>
+                            <lightning-icon icon-name="utility:world" size="xx-small"></lightning-icon> Cultural Fair
+                        </li>
+                        <li data-category="heritage_event" onclick={handleCategoryClick}>
+                            <lightning-icon icon-name="utility:company" size="xx-small"></lightning-icon> Heritage Event
+                        </li>
+                    </ul>
+                </div>
+            </lightning-card>
+        </div>
+    </lightning-card>
+    </div>
+</template>
