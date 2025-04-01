@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
-    <excludeButtons>OpenSlackRecordChannel</excludeButtons>
     <layoutSections>
         <customLabel>false</customLabel>
         <detailHeading>false</detailHeading>
@@ -20,12 +19,16 @@
                 <field>Event_Details__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Required</behavior>
+                <behavior>Edit</behavior>
                 <field>Events_Managers__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Role__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Country_Code__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -62,6 +65,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Email__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Is_Duplicate__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns/>
@@ -124,7 +131,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00hBg000000oYT9</masterLabel>
+        <masterLabel>00hdL00000AD6lv</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

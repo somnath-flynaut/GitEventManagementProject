@@ -14,6 +14,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>EventID__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Event_Budget__c</field>
             </layoutItems>
             <layoutItems>
@@ -26,7 +30,15 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Venue_Expenses__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Logistic_Expense__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Service_Charge__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -51,6 +63,10 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Amount_Due__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Advance_payment__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -138,7 +154,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00hBg000000oeqI</masterLabel>
+        <masterLabel>00hdL00000AXnqb</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

@@ -38,6 +38,18 @@
                 <behavior>Edit</behavior>
                 <field>Event_Description__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Static_Image_URL__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Venue_Location__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Feedback_Link__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -58,6 +70,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Event_Ticket_Price__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Venues__c</field>
             </layoutItems>
             <layoutItems>
@@ -69,7 +85,7 @@
                 <field>Contact__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Required</behavior>
+                <behavior>Edit</behavior>
                 <field>Events_Managers__c</field>
             </layoutItems>
         </layoutColumns>
@@ -105,6 +121,10 @@
         <style>CustomLinks</style>
     </layoutSections>
     <relatedLists>
+        <fields>NAME</fields>
+        <relatedList>Event_Team_Member__c.Event_Details__c</relatedList>
+    </relatedLists>
+    <relatedLists>
         <fields>TASK.SUBJECT</fields>
         <fields>TASK.WHO_NAME</fields>
         <fields>ACTIVITY.TASK</fields>
@@ -135,13 +155,17 @@
         <fields>NAME</fields>
         <relatedList>Hospitality__c.Event__c</relatedList>
     </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <relatedList>Food_and_Beverage__c.Event_Name__c</relatedList>
+    </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>
     <showInteractionLogPanel>false</showInteractionLogPanel>
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00hC4000001HxKs</masterLabel>
+        <masterLabel>00hdL00000AI0iB</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>
