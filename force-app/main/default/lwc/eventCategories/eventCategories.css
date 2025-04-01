@@ -1,0 +1,82 @@
+.event-categories-container {
+    position: fixed;
+    top: 100px; /* Adjust based on your site's header */
+    left: 20px; /* Adjust based on tab position */
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    display: none; /* Hidden by default */
+    z-index: 999; /* Ensure it appears above other elements */
+}
+
+.hidden {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+.event-categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    background: #f0f2f5;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+    height: 500px;
+    overflow-y: auto;
+}
+
+.hover-card {
+    box-shadow: none;
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.hover-card:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+    position: relative;
+}
+
+.category {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.category ul {
+    padding: 0;
+    list-style: none;
+    width: 100%;
+}
+
+.category ul li {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    padding: 8px 10px;
+    border-radius: 5px;
+    transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out;
+}
+
+.category ul li:hover {
+    background-color: #5989b0;
+    color: white;
+}
+
+.category lightning-icon {
+    margin-right: 5px;
+}

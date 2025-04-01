@@ -1,0 +1,40 @@
+<template>
+    <div class="container">
+        <div class="grid-container">
+            <template for:each={grids} for:item="grid">
+                <div key={grid.id} class="grid-item">
+                    <template for:each={grid.images} for:item="image">
+                        <img key={image} src={image} class="grid-image" />
+                    </template>
+                </div>
+            </template>
+        </div>
+        <div class="text-content">
+            <h2>{textContent.title}</h2>
+            <p>{textContent.description}</p>
+            <p>{textContent.extraInfo}</p>
+            <div class="buttons">
+                <button class="btn talk-btn" onclick={handleTalkToExpertClick}>Talk to Expert</button>
+                <button class="btn whatsapp-btn" onclick={handleWhatsAppClick}>Whatsapp us</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Section -->
+    <template if:true={isModalOpen}>
+        <section class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header">
+                    <h2 class="slds-text-heading_medium">Talk to Expert</h2>
+                    <button class="slds-button slds-modal__close slds-button_icon close-btn" onclick={closeModal}>
+                        ✖
+                    </button>
+                </header>
+                <div class="slds-modal__content slds-p-around_medium">
+                    <c-event-lead-form></c-event-lead-form>
+                </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+</template>

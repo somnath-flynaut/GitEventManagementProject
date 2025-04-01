@@ -1,0 +1,73 @@
+<template>
+    <lightning-card title="Submit Feedback" icon-name="action:feedback">
+        <div class="slds-p-around_medium">
+
+            <!-- Single Event Search and Select Field -->
+            <lightning-combobox
+                label="Search and Select Event"
+                options={eventOptions}
+                value={eventId}
+                placeholder="Type to search current and past events"
+                onchange={handleEventChange}
+                oninput={handleEventSearch}>
+            </lightning-combobox>
+
+            <!-- Name Field -->
+            <lightning-input 
+                label="Name" 
+                value={feedbackName} 
+                onchange={handleNameChange}>
+            </lightning-input>
+
+            <!-- Phone Field -->
+            <lightning-input 
+                label="Phone" 
+                type="tel" 
+                value={phone} 
+                onchange={handlePhoneChange}>
+            </lightning-input>
+
+            <!-- Overall Experience Picklist -->
+            <lightning-combobox 
+                label="Overall Experience" 
+                value={overallExperience} 
+                placeholder="Select an option"
+                options={overallExperienceOptions} 
+                onchange={handleOverallExperienceChange}>
+            </lightning-combobox>
+
+            <!-- Comments Field -->
+            <lightning-textarea 
+                label="Comments" 
+                value={comments} 
+                onchange={handleCommentsChange}>
+            </lightning-textarea>
+
+            <!-- Rating Picklist -->
+            <lightning-combobox 
+                label="Rating" 
+                value={rating} 
+                placeholder="Select a rating"
+                options={ratingOptions} 
+                onchange={handleRatingChange}>
+            </lightning-combobox>
+
+            <!-- Interested in Hosting an Event Checkbox -->
+            <lightning-input 
+                type="checkbox" 
+                label="Interested in Hosting an Event" 
+                checked={interestedInHosting} 
+                onchange={handleInterestedChange}>
+            </lightning-input>
+
+            <!-- Submit Button -->
+            <div class="slds-m-top_medium">
+                <lightning-button 
+                    label="Submit Feedback" 
+                    variant="brand" 
+                    onclick={handleSubmit}>
+                </lightning-button>
+            </div>
+        </div>
+    </lightning-card>
+</template>

@@ -1,0 +1,25 @@
+<template>
+    <lightning-card title="New Event Manager" icon-name="action:new_event">
+        <div class="slds-p-horizontal_medium">
+            <!-- Edit Form -->
+            <lightning-record-edit-form 
+                object-api-name="Events_Managers__c" 
+                onsuccess={handleSuccess}>
+                
+                <!-- Name Field -->
+                <lightning-input-field 
+                    field-name="Name">
+                </lightning-input-field>
+
+                <!-- Submit Button -->
+                <div class="slds-m-top_medium">
+                    <lightning-button 
+                        variant="brand" 
+                        type="submit" 
+                        label="Register">
+                    </lightning-button>
+                </div>
+            </lightning-record-edit-form>
+        </div>
+    </lightning-card>
+</template>

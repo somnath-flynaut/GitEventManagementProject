@@ -1,0 +1,14 @@
+<template>
+    <div class="carousel-wrapper">
+        <h2 class="heading">Our Sponsors</h2>
+        <div class="carousel-container">
+            <div class="carousel-track" lwc:ref="carouselTrack">
+                <template for:each={images} for:item="img">
+                    <div key={img.id} class="carousel-item">
+                        <img src={img.url} alt={img.altText} />
+                    </div>
+                </template>
+            </div>
+        </div>
+    </div>
+</template>

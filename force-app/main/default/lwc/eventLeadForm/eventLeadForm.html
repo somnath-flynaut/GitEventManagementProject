@@ -1,0 +1,35 @@
+<template>
+    <lightning-card title="Contact Us" icon-name="standard:lead">
+        <div class="slds-p-around_medium">
+            <lightning-record-edit-form 
+                object-api-name="Lead"
+                onsuccess={handleSuccess}>
+
+                <!-- Name Field -->
+                <lightning-input-field field-name="Name"> </lightning-input-field>
+
+                <!-- Email Field -->
+                <lightning-input-field field-name="Email"> </lightning-input-field>
+
+                <!-- Contact Number (Phone) -->
+                <lightning-input-field field-name="Phone"> </lightning-input-field>
+
+                <!-- Contact Number (Company) -->
+                <lightning-input-field field-name="Company"> </lightning-input-field>
+
+                <!-- Description Field -->
+                <lightning-input-field field-name="Event_Description__c"> </lightning-input-field>
+
+                <!-- Submit Button -->
+                <div class="slds-m-top_medium">
+                    <lightning-button 
+                        type="submit" 
+                        label="Submit" 
+                        variant="brand">
+                    </lightning-button>
+                </div>
+
+            </lightning-record-edit-form>
+        </div>
+    </lightning-card>
+</template>
