@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Total_Expenses__c</fullName>
-    <formula>F_B_Expense__c +  Hospitality_Venue_Expense__c +  Logistic_Expense__c +  Venue_Expenses__c + Service_Charge__c + Miscellaneous_Expense__c</formula>
+    <formula>F_B_Expense__c +  Hospitality_Expense__c +  Logistic_Expense__c +  Venue_Expense__c + Service_Charge__c + Miscellaneous_Expense__c</formula>
     <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
     <label>Total Expenses</label>
     <precision>18</precision>
