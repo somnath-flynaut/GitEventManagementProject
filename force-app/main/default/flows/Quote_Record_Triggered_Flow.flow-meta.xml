@@ -191,6 +191,12 @@ Payment Status should be Unpaid (By default).</description>
             </value>
         </inputAssignments>
         <inputAssignments>
+            <field>Event_Budget__c</field>
+            <value>
+                <elementReference>$Record.Event_Budget__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
             <field>Name</field>
             <value>
                 <elementReference>$Record.Opportunity_Name__r.Name</elementReference>
