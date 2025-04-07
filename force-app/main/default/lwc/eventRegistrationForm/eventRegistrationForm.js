@@ -1,12 +1,50 @@
 import { LightningElement, track, wire } from 'lwc';
 import { CurrentPageReference } from 'lightning/navigation';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
+import ticketprice from '@salesforce/apex/EventController.ticketprice';
 
 export default class EventRegistrationForm extends LightningElement {
     @track eventName = '';
     @track eventId = '';
     @track isLoading = true;
     @track showPaymentModal = false; // Controls Payment Popup
+    EvtId;
+    ticketType;
+    numTickets;
+    showprice;
+   
+    handleEvt(event)
+    {
+        this.EvtId = event.target.value;
+         this.calculatePrice();
+    }
+    handleTicketTypeChange(event)
+    {
+        this.ticketType = event.target.value;
+        this.calculatePrice();
+    }
+    handlenumber(event)
+    {
+        this.numTickets = event.target.value;
+        this.calculatePrice();
+    }
+
+    calculatePrice() {
+        if(this.EvtId && this.ticketType && this.numTickets) {
+         ticketprice({ EvtId:this.EvtId, ticketType : this.ticketType, numTickets: this.numTickets })
+         .then(data => {
+             this.showprice=data;
+        })
+        .catch((error) => {
+         console.error('Error fetching price:', error);
+         this.showprice = 0;
+     });
+        }
+     }
+
+
+
+
 
     @wire(CurrentPageReference)
     getPageReference(currentPageReference) {
