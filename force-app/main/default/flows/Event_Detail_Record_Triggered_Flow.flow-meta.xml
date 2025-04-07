@@ -7,12 +7,9 @@
         <locationY>539</locationY>
         <actionName>emailSimple</actionName>
         <actionType>emailSimple</actionType>
-<<<<<<< HEAD
         <connector>
             <targetReference>Venue_manager_Email_decision</targetReference>
         </connector>
-=======
->>>>>>> 3532b3b73cba41ebdfce47231d71f0f75c73746e
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
             <name>emailAddresses</name>
@@ -40,24 +37,55 @@
         </inputParameters>
         <nameSegment>emailSimple</nameSegment>
         <offset>0</offset>
-<<<<<<< HEAD
-=======
-        <versionSegment>1</versionSegment>
->>>>>>> 3532b3b73cba41ebdfce47231d71f0f75c73746e
+    </actionCalls>
+    <actionCalls>
+        <name>Send_Email_To_Client</name>
+        <label>Send Email To Client</label>
+        <locationX>402</locationX>
+        <locationY>755</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <connector>
+            <targetReference>assignIdToEventDetails</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>Get_Quote_related_to_event.Email__c</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <elementReference>SubjectForClientNotification</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>ClientNotificationTemplate</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
     </actionCalls>
     <actionCalls>
         <name>Send_Event_Email</name>
         <label>Send_Event_Email</label>
         <locationX>402</locationX>
-        <locationY>1055</locationY>
+        <locationY>1487</locationY>
         <actionName>emailSimple</actionName>
         <actionType>emailSimple</actionType>
-<<<<<<< HEAD
         <connector>
             <targetReference>Venue_manager_Email_decision</targetReference>
         </connector>
-=======
->>>>>>> 3532b3b73cba41ebdfce47231d71f0f75c73746e
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
         <inputParameters>
             <name>emailAddresses</name>
@@ -85,13 +113,12 @@
         </inputParameters>
         <nameSegment>emailSimple</nameSegment>
         <offset>0</offset>
-<<<<<<< HEAD
     </actionCalls>
     <actionCalls>
         <name>Send_to_Venue_manager</name>
         <label>Send to Venue manager</label>
         <locationX>226</locationX>
-        <locationY>1355</locationY>
+        <locationY>1787</locationY>
         <actionName>emailSimple</actionName>
         <actionType>emailSimple</actionType>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
@@ -121,16 +148,13 @@
         </inputParameters>
         <nameSegment>emailSimple</nameSegment>
         <offset>0</offset>
-=======
-        <versionSegment>1</versionSegment>
->>>>>>> 3532b3b73cba41ebdfce47231d71f0f75c73746e
     </actionCalls>
     <apiVersion>62.0</apiVersion>
     <assignments>
         <name>Append_Team_Member_Row</name>
         <label>Append_Team_Member_Row</label>
         <locationX>490</locationX>
-        <locationY>755</locationY>
+        <locationY>1187</locationY>
         <assignmentItems>
             <assignToReference>TeamMemberTable</assignToReference>
             <operator>Add</operator>
@@ -146,7 +170,7 @@
         <name>assignIdToEventDetails</name>
         <label>assignIdToEventDetails</label>
         <locationX>402</locationX>
-        <locationY>431</locationY>
+        <locationY>863</locationY>
         <assignmentItems>
             <assignToReference>eventdetailrecordid.Id</assignToReference>
             <operator>Assign</operator>
@@ -162,7 +186,7 @@
         <name>Close_Team_Member_Table</name>
         <label>Close Team Member Table</label>
         <locationX>402</locationX>
-        <locationY>947</locationY>
+        <locationY>1379</locationY>
         <assignmentItems>
             <assignToReference>TeamMemberTable</assignToReference>
             <operator>Add</operator>
@@ -206,17 +230,16 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>assignIdToEventDetails</targetReference>
+                <targetReference>Get_Event_Manager</targetReference>
             </connector>
             <label>If status is Planned</label>
         </rules>
     </decisions>
-<<<<<<< HEAD
     <decisions>
         <name>Venue_manager_Email_decision</name>
         <label>Venue manager Email decision</label>
         <locationX>358</locationX>
-        <locationY>1247</locationY>
+        <locationY>1679</locationY>
         <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
         <rules>
             <name>To_send_email</name>
@@ -249,16 +272,19 @@
         </rules>
     </decisions>
     <description>With addition on Send email to Venue manager</description>
-=======
->>>>>>> 3532b3b73cba41ebdfce47231d71f0f75c73746e
     <environments>Default</environments>
+    <formulas>
+        <name>SubjectForClientNotification</name>
+        <dataType>String</dataType>
+        <expression>&quot;Event Confirmation &quot; &amp; {!$Record.Name} &amp; &quot; is now planned&quot;</expression>
+    </formulas>
     <interviewLabel>Event Detail Record Triggered Flow {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Event Detail Record Triggered Flow</label>
     <loops>
         <name>Loop_Through_Team_Members</name>
         <label>Loop Through Team Members</label>
         <locationX>402</locationX>
-        <locationY>647</locationY>
+        <locationY>1079</locationY>
         <collectionReference>Get_Team_Members</collectionReference>
         <iterationOrder>Asc</iterationOrder>
         <nextValueConnector>
@@ -288,6 +314,48 @@
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
     <recordLookups>
+        <name>Get_Account_Related_to_Quote</name>
+        <label>Get Account Related to Quote</label>
+        <locationX>402</locationX>
+        <locationY>647</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Send_Email_To_Client</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_Quote_related_to_event.Account__c</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Account</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Event_Manager</name>
+        <label>Get Event Manager</label>
+        <locationX>402</locationX>
+        <locationY>431</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Get_Quote_related_to_event</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Events_Managers__c</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Events_Managers__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
         <description>An email should be sent to that Event Manager</description>
         <name>Get_Event_Manager_Record</name>
         <label>Get Event Manager Record</label>
@@ -310,10 +378,31 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
+        <name>Get_Quote_related_to_event</name>
+        <label>Get Quote related to event</label>
+        <locationX>402</locationX>
+        <locationY>539</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Get_Account_Related_to_Quote</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Event_Name__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Name</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Quote__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
         <name>Get_Team_Members</name>
         <label>Get Team Members</label>
         <locationX>402</locationX>
-        <locationY>539</locationY>
+        <locationY>971</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
             <targetReference>Loop_Through_Team_Members</targetReference>
@@ -364,6 +453,11 @@
     </start>
     <status>Active</status>
     <textTemplates>
+        <name>ClientNotificationTemplate</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;&lt;strong style=&quot;background-color: rgb(255, 255, 255); font-size: 14px; font-family: -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, &amp;quot;Noto Sans&amp;quot;, Helvetica, Arial, sans-serif, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;; color: rgb(31, 35, 40);&quot;&gt;Dear {!Get_Account_Related_to_Quote.Name},&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); font-size: 14px; font-family: -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, &amp;quot;Noto Sans&amp;quot;, Helvetica, Arial, sans-serif, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;; color: rgb(31, 35, 40);&quot;&gt;We are pleased to inform you that the event {!$Record.Name} has been scheduled and is now in the &quot;Planned&quot; status. Below are the details:&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;background-color: rgb(255, 255, 255); font-size: 14px; font-family: -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, &amp;quot;Noto Sans&amp;quot;, Helvetica, Arial, sans-serif, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;; color: rgb(31, 35, 40);&quot;&gt;Event Details -&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); font-size: 14px; font-family: -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, &amp;quot;Noto Sans&amp;quot;, Helvetica, Arial, sans-serif, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;; color: rgb(31, 35, 40);&quot;&gt;Event Name:&amp;nbsp;{!$Record.Name}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); font-size: 14px; font-family: -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, &amp;quot;Noto Sans&amp;quot;, Helvetica, Arial, sans-serif, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;; color: rgb(31, 35, 40);&quot;&gt;Date &amp;amp; Time:&amp;nbsp;{!$Record.Event_Date_Time__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); font-size: 14px; font-family: -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, &amp;quot;Noto Sans&amp;quot;, Helvetica, Arial, sans-serif, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;; color: rgb(31, 35, 40);&quot;&gt;Location:&amp;nbsp;{!$Record.Venues__r.Name}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); font-size: 14px; font-family: -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, &amp;quot;Noto Sans&amp;quot;, Helvetica, Arial, sans-serif, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;; color: rgb(31, 35, 40);&quot;&gt;Description:&amp;nbsp;{!$Record.Event_Description__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;background-color: rgb(255, 255, 255); font-size: 14px; font-family: -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, &amp;quot;Noto Sans&amp;quot;, Helvetica, Arial, sans-serif, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;; color: rgb(31, 35, 40);&quot;&gt;Event Manager Details -&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); font-size: 14px; font-family: -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, &amp;quot;Noto Sans&amp;quot;, Helvetica, Arial, sans-serif, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;; color: rgb(31, 35, 40);&quot;&gt;Name:&amp;nbsp;{!$Record.Events_Managers__r.Name}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); font-size: 14px; font-family: -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, &amp;quot;Noto Sans&amp;quot;, Helvetica, Arial, sans-serif, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;; color: rgb(31, 35, 40);&quot;&gt;Contact Email:&amp;nbsp;{!$Record.Events_Managers__r.Email__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); font-size: 14px; font-family: -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, &amp;quot;Noto Sans&amp;quot;, Helvetica, Arial, sans-serif, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;; color: rgb(31, 35, 40);&quot;&gt;Phone:&amp;nbsp;{!$Record.Events_Managers__r.Phone_Number__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); font-size: 14px; font-family: -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, &amp;quot;Noto Sans&amp;quot;, Helvetica, Arial, sans-serif, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;; color: rgb(31, 35, 40);&quot;&gt;If you have any questions or require further assistance, please feel free to contact the event manager.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); font-size: 14px; font-family: -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, &amp;quot;Noto Sans&amp;quot;, Helvetica, Arial, sans-serif, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;; color: rgb(31, 35, 40);&quot;&gt;We look forward to your participation!&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;background-color: rgb(255, 255, 255); font-size: 14px; font-family: -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, &amp;quot;Noto Sans&amp;quot;, Helvetica, Arial, sans-serif, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;; color: rgb(31, 35, 40);&quot;&gt;Best regards,&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;background-color: rgb(255, 255, 255); font-size: 14px; font-family: -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, &amp;quot;Noto Sans&amp;quot;, Helvetica, Arial, sans-serif, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;; color: rgb(31, 35, 40);&quot;&gt;Event Management Team&lt;/strong&gt;&lt;/p&gt;</text>
+    </textTemplates>
+    <textTemplates>
         <name>EmailBody</name>
         <isViewedAsPlainText>false</isViewedAsPlainText>
         <text>&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); font-size: 14px; font-family: verdana; color: rgb(31, 35, 40);&quot;&gt;Dear &lt;/span&gt;&lt;strong style=&quot;font-size: 14px; color: rgb(0, 0, 0); font-family: verdana;&quot;&gt;&lt;u&gt;{!$Record.Events_Managers__r.Name},&lt;/u&gt;&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); font-size: 14px; font-family: verdana; color: rgb(0, 0, 0);&quot;&gt;Here are the details for the upcoming event you are managing...&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-family: verdana;&quot;&gt;Event Name:&lt;/strong&gt;&lt;span style=&quot;font-family: verdana;&quot;&gt;  {!$Record.Name}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;background-color: rgb(255, 255, 255); color: rgb(68, 68, 68); font-family: verdana;&quot;&gt;Event Status: &lt;/strong&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(68, 68, 68); font-family: verdana;&quot;&gt;  {!$Record.Event_Status__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;background-color: rgb(255, 255, 255); color: rgb(68, 68, 68); font-family: verdana;&quot;&gt;Event &lt;/strong&gt;&lt;strong style=&quot;font-family: verdana;&quot;&gt;Start Date &amp;amp; Time:&lt;/strong&gt;&lt;span style=&quot;font-family: verdana;&quot;&gt; {!$Record.Event_Date_Time__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;background-color: rgb(255, 255, 255); color: rgb(68, 68, 68); font-family: verdana;&quot;&gt;Event  &lt;/strong&gt;&lt;strong style=&quot;font-family: verdana;&quot;&gt;End Date &lt;/strong&gt;&lt;strong style=&quot;background-color: rgb(255, 255, 255); color: rgb(68, 68, 68); font-family: verdana;&quot;&gt;&amp;amp; Time:&lt;/strong&gt;&lt;span style=&quot;font-family: verdana;&quot;&gt; {!$Record.End_Date_Time__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;background-color: rgb(255, 255, 255); color: rgb(68, 68, 68); font-family: verdana;&quot;&gt;Event &lt;/strong&gt;&lt;strong style=&quot;font-family: verdana;&quot;&gt;Venue:&lt;/strong&gt;&lt;span style=&quot;font-family: verdana;&quot;&gt; {!$Record.Venues__r.Name}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(31, 35, 40); font-family: verdana; font-size: 14px; background-color: rgb(255, 255, 255);&quot;&gt;Please coordinate with your team members to ensure smooth event execution.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;color: rgb(31, 35, 40); font-family: verdana; font-size: 14px; background-color: rgb(255, 255, 255);&quot;&gt;Best regards,&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;color: rgb(0, 0, 0); font-family: verdana; font-size: 14px;&quot;&gt;Event Management Team&lt;/strong&gt;&lt;/p&gt;</text>
@@ -371,11 +465,7 @@
     <textTemplates>
         <name>Full_Email_Template</name>
         <isViewedAsPlainText>false</isViewedAsPlainText>
-<<<<<<< HEAD
         <text>&lt;p&gt;&lt;span style=&quot;font-family: verdana;&quot;&gt;Dear &lt;/span&gt;&lt;strong style=&quot;font-family: verdana;&quot;&gt;{!$Record.Events_Managers__r.Name},&amp;nbsp;&amp;nbsp;&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-family: verdana;&quot;&gt;Here are the details for the upcoming event you are managing:-&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-family: verdana;&quot;&gt;Event Name:&lt;/strong&gt;&lt;span style=&quot;font-family: verdana;&quot;&gt; {!$Record.Name}&amp;nbsp;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-family: verdana;&quot;&gt;Start Date:&lt;/strong&gt;&lt;span style=&quot;font-family: verdana;&quot;&gt; {!$Record.Event_Date_Time__c}&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-family: verdana;&quot;&gt;End Date: &lt;/strong&gt;&lt;span style=&quot;font-family: verdana;&quot;&gt;{!$Record.End_Date_Time__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-family: verdana;&quot;&gt;Venue:&lt;/strong&gt;&lt;span style=&quot;font-family: verdana;&quot;&gt; {!$Record.Venues__r.Name}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-family: verdana;&quot;&gt;&lt;u&gt;Assigned Event Team Members:-&lt;/u&gt;&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-family: verdana;&quot;&gt;{!TeamMemberTable}&amp;nbsp;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-family: verdana;&quot;&gt;{!Table_Rows}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-family: verdana;&quot;&gt;Please coordinate with your team members to ensure smooth event execution.&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-family: verdana;&quot;&gt;Best regards,&amp;nbsp;&amp;nbsp;&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-family: verdana;&quot;&gt;Event Management Team&lt;/strong&gt;&lt;/p&gt;</text>
-=======
-        <text>&lt;p&gt;&lt;span style=&quot;font-family: verdana;&quot;&gt;Dear &lt;/span&gt;&lt;strong style=&quot;font-family: verdana;&quot;&gt;{!$Record.Events_Managers__r.Name},&amp;nbsp;&amp;nbsp;&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-family: verdana;&quot;&gt;Here are the details for the upcoming event you are managing:-&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-family: verdana;&quot;&gt;Event Name:-&lt;/strong&gt;&lt;span style=&quot;font-family: verdana;&quot;&gt; {!$Record.Name}&amp;nbsp;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-family: verdana;&quot;&gt;Start Date:-&lt;/strong&gt;&lt;span style=&quot;font-family: verdana;&quot;&gt; {!$Record.Event_Date_Time__c}&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-family: verdana;&quot;&gt;End Date:- &lt;/strong&gt;&lt;span style=&quot;font-family: verdana;&quot;&gt;{!$Record.End_Date_Time__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-family: verdana;&quot;&gt;Venue:-&lt;/strong&gt;&lt;span style=&quot;font-family: verdana;&quot;&gt; {!$Record.Venues__r.Name}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-family: verdana;&quot;&gt;&lt;u&gt;Assigned Event Team Members:-&lt;/u&gt;&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-family: verdana;&quot;&gt;{!TeamMemberTable}&amp;nbsp;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-family: verdana;&quot;&gt;{!Table_Rows}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-family: verdana;&quot;&gt;Please coordinate with your team members to ensure smooth event execution.&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-family: verdana;&quot;&gt;Best regards,&amp;nbsp;&amp;nbsp;&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;font-family: verdana;&quot;&gt;Event Management Team&lt;/strong&gt;&lt;/p&gt;</text>
->>>>>>> 3532b3b73cba41ebdfce47231d71f0f75c73746e
     </textTemplates>
     <textTemplates>
         <name>Table_Rows</name>
@@ -386,14 +476,11 @@
 &lt;td style=&quot;text-align: center;&quot;&gt;  {!Loop_Through_Team_Members.Email__c} &lt;/td&gt;  
 &lt;/tr&gt;</text>
     </textTemplates>
-<<<<<<< HEAD
     <textTemplates>
         <name>VenuemanagerEmailTemplate</name>
         <isViewedAsPlainText>false</isViewedAsPlainText>
         <text>&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;Dear &lt;/span&gt;&lt;strong style=&quot;color: rgb(0, 0, 0);&quot;&gt;{!$Record.Venues__r.Name}&lt;/strong&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt; Manager,&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;We are pleased to inform you that your venue, &lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);&quot;&gt;{!$Record.Venues__r.Name}&lt;/span&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;, has been assigned to an upcoming event. Please find the details below:&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;color: rgb(0, 0, 0);&quot;&gt;Event Name: &lt;/strong&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;{!$Record.Name}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;color: rgb(0, 0, 0);&quot;&gt;Event Start Date:&lt;/strong&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt; {!$Record.Event_Date_Time__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;color: rgb(0, 0, 0);&quot;&gt;Event End Date Time:&lt;/strong&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt; {!$Record.End_Date_Time__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;color: rgb(0, 0, 0);&quot;&gt;Expected Attendees:&lt;/strong&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt; {!$Record.Maximum_Attendees__c}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;Please review the details and confirm the availability of your venue for the specified time. If you have any questions or require further information, feel free to reach out. We appreciate your support in making this event a success!&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;color: rgb(0, 0, 0);&quot;&gt;Best Regards,&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;&lt;strong style=&quot;color: rgb(0, 0, 0);&quot;&gt;Event Management Team&lt;/strong&gt;&lt;/p&gt;</text>
     </textTemplates>
-=======
->>>>>>> 3532b3b73cba41ebdfce47231d71f0f75c73746e
     <variables>
         <name>eventdetailrecordid</name>
         <dataType>SObject</dataType>

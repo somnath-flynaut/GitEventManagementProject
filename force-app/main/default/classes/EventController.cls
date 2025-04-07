@@ -31,6 +31,7 @@ public static List<Event_Details__c> findEventsByName(String eventName) {
             LIMIT 10];
 }
 
+
      
 @AuraEnabled(cacheable=true)
 public static string ticketprice(Id EvtId , String ticketType ,Integer numTickets){
@@ -58,5 +59,6 @@ calculatedPrice *= 1 *numTickets;
 System.debug('Final Calculated Price: ' + calculatedPrice);
 return String.valueof(calculatedPrice);
 }
+
 
 }
