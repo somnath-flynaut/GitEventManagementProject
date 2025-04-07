@@ -31,4 +31,34 @@ public static List<Event_Details__c> findEventsByName(String eventName) {
             LIMIT 10];
 }
 
+
+     
+@AuraEnabled(cacheable=true)
+public static string ticketprice(Id EvtId , String ticketType ,Integer numTickets){
+    
+    Event_Details__c Evt = [SELECT Id, Event_Ticket_Price__c 
+    FROM Event_Details__c 
+    WHERE Id = :EvtId LIMIT 1];
+
+if (Evt == null ) {
+System.debug('No concert found');
+return null ; // Return 0 if no concert found
+}
+Decimal calculatedPrice = Evt.Event_Ticket_Price__c; // Default price
+
+// Apply Ticket Type logic
+if (ticketType == 'VIP') {
+calculatedPrice *= 1.5 * numTickets;
+} else if (ticketType == 'Student') {
+calculatedPrice *= 0.85 *numTickets;
+}
+if (ticketType == 'General') {
+calculatedPrice *= 1 *numTickets;
+} 
+
+System.debug('Final Calculated Price: ' + calculatedPrice);
+return String.valueof(calculatedPrice);
+}
+
+
 }
