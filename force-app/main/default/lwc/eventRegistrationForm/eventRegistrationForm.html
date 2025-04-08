@@ -20,19 +20,12 @@
                     <lightning-input-field field-name="Attendee_Email__c"></lightning-input-field>
 
                     <!-- Event (Prefilled & Disabled) -->
-                    <lightning-input-field field-name="Event_Details__c" value={eventId} onchange={handleEvt} disabled ></lightning-input-field>
+                    <lightning-input-field field-name="Event_Details__c" value={eventId} onchange={handleEvt}  ></lightning-input-field>
 
                     <!-- Ticket Details -->
-
                     <lightning-input-field field-name="Ticket_Type__c" onchange={handleTicketTypeChange}></lightning-input-field>
                     <lightning-input-field field-name="Number_of_Tickets__c" onchange={handlenumber}></lightning-input-field>
                     <lightning-input-field field-name="Ticket_price__c" value={showprice}></lightning-input-field>
-
-                    <lightning-input-field field-name="Ticket_Type__c"></lightning-input-field>
-                    <lightning-input-field field-name="Number_of_Tickets__c"></lightning-input-field>
-                    <lightning-input-field field-name="Ticket_price__c"></lightning-input-field>
-
-
                     <!-- Buttons -->
                     <div class="slds-m-top_medium">
                         <lightning-button variant="brand" label="Proceed to Pay" onclick={handleProceedToPay}></lightning-button>
