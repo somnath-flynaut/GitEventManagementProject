@@ -20,12 +20,15 @@
                     <lightning-input-field field-name="Attendee_Email__c"></lightning-input-field>
 
                     <!-- Event (Prefilled & Disabled) -->
-                    <lightning-input-field field-name="Event_Details__c" value={eventId} onchange={handleEvt}  ></lightning-input-field>
-
+                    <lightning-input-field field-name="Event_Details__c" value={eventId} disabled></lightning-input-field>
+                    
                     <!-- Ticket Details -->
                     <lightning-input-field field-name="Ticket_Type__c" onchange={handleTicketTypeChange}></lightning-input-field>
                     <lightning-input-field field-name="Number_of_Tickets__c" onchange={handlenumber}></lightning-input-field>
-                    <lightning-input-field field-name="Ticket_price__c" value={showprice}></lightning-input-field>
+                    
+                    <!-- Ticket Price Display -->
+                    <lightning-input label="Total Price" value={showprice} disabled></lightning-input>
+
                     <!-- Buttons -->
                     <div class="slds-m-top_medium">
                         <lightning-button variant="brand" label="Proceed to Pay" onclick={handleProceedToPay}></lightning-button>
@@ -46,10 +49,6 @@
                         class="slds-modal__close" title="Close" onclick={closePaymentModal}>
                     </lightning-button-icon>
                 </header>
-
-                <!-- <div class="slds-modal__content slds-p-around_medium">
-                    <c-payment-gateway></c-payment-gateway>
-                </div> -->
 
                 <footer class="slds-modal__footer">
                     <lightning-button variant="neutral" label="Close" onclick={closePaymentModal}></lightning-button>
